@@ -1,8 +1,9 @@
 <?php
 /**
- * Config Class.
+ * Theme Mod Class.
  *
- * A simple class for grabbing and returning a configuration file from `/config`.
+ * This class is a wrapper around the theme mod system for quickly getting mods.
+ * It also provides helper methods for getting mods from specific features.
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
