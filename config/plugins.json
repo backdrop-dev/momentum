@@ -1,0 +1,12 @@
+{
+	"classicpress-directory-integration": {
+		"label": "ClassicPress Directory Integration",
+		"author": "ClassicPress Community",
+		"description": "Install and update plugins from ClassicPress directory and keep ClassicPress themes updated."
+	},
+	"regenerate-thumbnails" : {
+		"label": "Regenerate Thumbnails",
+		"author": "Alex Mills",
+		"description": "Regenerate Thumbnails allows you to regenerate all thumbnail sizes for one or more images that have been uploaded to your Media Library."
+	}
+}
