@@ -110,7 +110,7 @@ class Sidebar implements JsonSerializable {
 	public function name() {
 
 		return apply_filters(
-			"generosity/sidebar/{$this->id}/name",
+			"momentum/sidebar/{$this->id}/name",
 			$this->name ?: $this->id(),
 			$this
 		);

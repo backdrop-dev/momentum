@@ -39,6 +39,7 @@ class Collection extends CollectionBase implements JsonSerializable {
 		return array_map( function( $value ) {
 
 			if ( $value instanceof JsonSerializable ) {
+
 				return $value->jsonSerialize();
 			}
 

@@ -42,5 +42,5 @@ add_action( 'after_setup_theme', function() {
 	}
 
 	// Load theme translations.
-	load_theme_textdomain( 'generosity', get_parent_theme_file_path( 'public/lang' ) );
+	load_theme_textdomain( 'momentum', get_parent_theme_file_path( 'public/lang' ) );
 } );
