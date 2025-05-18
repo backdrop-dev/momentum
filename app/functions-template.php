@@ -25,10 +25,10 @@ namespace Momentum;
 function sep( $sep = '' ) {
 
 	return apply_filters(
-		'generosity/sep',
+		'momentum/sep',
 		sprintf(
 			' <span class="sep">%s</span> ',
-			$sep ?: esc_html_x( '&middot;', 'meta separator', 'generosity' )
+			$sep ?: esc_html_x( '&middot;', 'meta separator', 'momentum' )
 		)
 	);
 }
