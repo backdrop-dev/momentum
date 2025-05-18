@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  outline: none;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+}
+
+html {
+  font-family: var(--font-family-primary);
+  line-height: 1.75;
+}
+
+h1 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 2rem;
+}
+
+h3 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-family: var(--font-family-heading, "Fira Sans", sans-serif);
+  font-size: 1rem;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  word-wrap: normal;
+  border: none;
+}
+.screen-reader-text:active, .screen-reader-text:focus {
+  clip: auto;
+  clip-path: none;
+  display: block;
+  height: auto;
+  width: auto;
+  z-index: 100000;
+  text-decoration: none;
+}
