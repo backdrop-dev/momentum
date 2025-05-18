@@ -1,0 +1,29 @@
+{
+	"name": "@luthemes/momentum",
+	"description": "Momentum is a minimal and flexible starter theme designed to provide a clean slate for developers. It focuses on simplicity and performance, making it ideal for building modern ClassicPress themes.",
+	"version": "0.0.1",
+	"author": "Benjamin Lu",
+	"license": "GPL-2.0+",
+	"homepage": "https://luthemes.com/portfolio/generosity",
+	"main": "resources/js/app.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/luthemes/generosity.git"
+	},
+	"bugs": {
+		"url": "https://github.com/luthemes/generosity/issues"
+	},
+	"scripts": {
+		"build": "npm run prod && npm run export",
+		"watch": "mix watch",
+		"prod": "mix --production",
+		"export": "mix --mix-config=webpack.mix.export.js"
+	},
+	"devDependencies": {
+		"laravel-mix": "^6.0.49",
+		"resolve-url-loader": "^5.0.0",
+		"sass": "^1.62.1",
+		"sass-loader": "^13.2.2",
+		"theme-rename": "^0.0.2"
+	}
+}
