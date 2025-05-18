@@ -17,7 +17,8 @@
 		"build": "npm run prod && npm run export",
 		"watch": "mix watch",
 		"prod": "mix --production",
-		"export": "mix --mix-config=webpack.mix.export.js"
+		"export": "mix --mix-config=webpack.mix.export.js",
+		"rename": "theme-rename"
 	},
 	"devDependencies": {
 		"laravel-mix": "^6.0.49",
