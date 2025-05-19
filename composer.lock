@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/backdrop-dev/framework.git",
-                "reference": "b615a90436d7e872fc32bb390f9bdf7853f6f1d9"
+                "reference": "9e6478829239a3b7364a5ccb823e29aaa50135f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/backdrop-dev/framework/zipball/b615a90436d7e872fc32bb390f9bdf7853f6f1d9",
-                "reference": "b615a90436d7e872fc32bb390f9bdf7853f6f1d9",
+                "url": "https://api.github.com/repos/backdrop-dev/framework/zipball/9e6478829239a3b7364a5ccb823e29aaa50135f2",
+                "reference": "9e6478829239a3b7364a5ccb823e29aaa50135f2",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +149,7 @@
                 "issues": "https://github.com/backdrop-dev/framework/issues",
                 "source": "https://github.com/backdrop-dev/framework/tree/1.0"
             },
-            "time": "2025-05-08T21:17:24+00:00"
+            "time": "2025-05-18T23:21:52+00:00"
         },
         {
             "name": "backdrop-dev/mix",
