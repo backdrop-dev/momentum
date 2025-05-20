@@ -42,7 +42,7 @@ class Provider extends ServiceProvider {
 				'momentum-settings',
 				$this->app->resolve( Views::class ),
 				[
-					'label'      => sprintf( __( '%s Settings', 'barista' ), wp_get_theme()->get( 'Name' ) ),
+					'label'      => sprintf( __( '%s Settings', 'momentum' ), wp_get_theme()->get( 'Name' ) ),
 					'capability' => 'edit_theme_options'
 				]
 			);
