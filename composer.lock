@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6134fbaaff349830dfb09d0420ccb31",
+    "content-hash": "d361ab1b1e3f46f9ff2b9089ea3d1a17",
     "packages": [
         {
             "name": "backdrop-dev/customize",
