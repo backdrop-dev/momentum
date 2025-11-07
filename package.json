@@ -13,18 +13,12 @@
 	"bugs": {
 		"url": "https://github.com/luthemes/generosity/issues"
 	},
-	"scripts": {
-		"build": "npm run prod && npm run export",
-		"watch": "mix watch",
-		"prod": "mix --production",
-		"export": "mix --mix-config=webpack.mix.export.js",
-		"rename": "theme-rename"
-	},
-	"devDependencies": {
-		"laravel-mix": "^6.0.49",
-		"resolve-url-loader": "^5.0.0",
-		"sass": "^1.62.1",
-		"sass-loader": "^13.2.2",
-		"theme-rename": "^0.0.3"
-	}
+  "devDependencies": {
+    "sass": "^1.93.3",
+    "vite": "^7.2.1"
+  },
+  "scripts": {
+    "watch": "vite build --watch",
+    "build": "vite build"
+  }
 }
