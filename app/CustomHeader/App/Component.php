@@ -52,7 +52,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 
 		// Enable custom header support
 		add_theme_support('custom-header', [
@@ -77,7 +77,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function register() {
+	public function register(): void {
 
 		// Hook for registering custom headers.
 		do_action( 'momentum/core/header/register', $this->headers );

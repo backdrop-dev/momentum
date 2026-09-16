@@ -52,7 +52,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 
 		// Register sidebars on `widgets_init`.
 		add_action( 'widgets_init', [ $this, 'register' ] );
@@ -68,7 +68,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function register() {
+	public function register(): void {
 
 		// Hook for registering custom sidebars.
 		do_action( 'momentum/core/sidebar/register', $this->sidebars );

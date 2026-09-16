@@ -52,7 +52,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 
 		// Register menus on `after_setup_theme`.
 		add_action( 'after_setup_theme', [ $this, 'register' ] );
@@ -68,7 +68,7 @@ class Component implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function register() {
+	public function register(): void {
 
 		// Hook for registering custom menus.
 		do_action( 'momentum/core/menu/register', $this->menus );

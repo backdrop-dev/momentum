@@ -30,7 +30,7 @@ class Provider extends ServiceProvider {
 	 * @access public
 	 * @return void
 	 */
-	public function register() {
+	public function register(): void {
 
 		$this->app->singleton( Size\Sizes::class   );
 
@@ -57,7 +57,7 @@ class Provider extends ServiceProvider {
 	 * @access public
 	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 		$this->app->resolve( Size\Component::class   )->boot();
 	}
 }

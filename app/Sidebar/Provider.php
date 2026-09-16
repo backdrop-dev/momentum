@@ -30,7 +30,7 @@ class Provider extends ServiceProvider {
 	 * @access public
 	 * @return void
 	 */
-	public function register() {
+	public function register(): void {
 
 
 		// Register the Sidebars collection with shorthand
@@ -49,7 +49,7 @@ class Provider extends ServiceProvider {
 	 * @access public
 	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 
 		// Boot Sidebar Component
 		$this->app->resolve( App\Component::class)->boot();
