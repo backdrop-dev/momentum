@@ -7,7 +7,6 @@
 			</header>
 			<div class="entry__content">
 				<?php $error->displayContent(); ?>
-				<?php get_search_form(); ?>
 			</div>
 		</article>
 		<?php $error->reset(); ?>
