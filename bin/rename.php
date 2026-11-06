@@ -17,7 +17,8 @@
  * - The copyright year, `Year`, on copyright lines only.
  *
  * It skips `vendor`, `node_modules`, built assets, images, `changelog.md`
- * (the starter's history) and this script. When it's done, `from` is set to
+ * (the starter's history), translations and this script, then rebuilds the
+ * `.pot` under the new text domain. When it's done, `from` is set to
  * `to`, so the file always describes the current theme, and Composer's
  * autoloader is rebuilt for the new namespace.
  *
@@ -104,7 +105,7 @@ if ( isset( $from['Year'], $to['Year'] ) && $from['Year'] !== $to['Year'] ) {
 }
 
 // Which files to rewrite.
-$skip_dirs  = [ '.git', 'vendor', 'node_modules', 'public/assets' ];
+$skip_dirs  = [ '.git', 'vendor', 'node_modules', 'public/assets', 'public/lang' ];
 $skip_files = [ 'changelog.md', 'themerename.json', 'bin/rename.php', 'package-lock.json' ];
 $text       = [ 'php', 'js', 'mjs', 'scss', 'css', 'json', 'md', 'txt', 'xml', 'dist', 'yml', 'yaml', 'html', 'pot', 'editorconfig' ];
 
@@ -180,6 +181,14 @@ passthru( $command . ' dump-autoload --working-dir=' . escapeshellarg( $root ), 
 
 if ( 0 !== $status ) {
 	echo "Run `composer dump-autoload` to finish: the autoloader still uses the old namespace.\n";
+}
+
+// Rebuild the translation template under the new text domain.
+$old_pot = "{$root}/public/lang/{$from['Slug']}.pot";
+
+if ( is_file( $old_pot ) ) {
+	unlink( $old_pot );
+	passthru( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( __DIR__ . '/make-pot.php' ) );
 }
 
 echo "Done. Check the changes with `git diff`, then search for anything the rename couldn't know about.\n";
