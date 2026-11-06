@@ -34,7 +34,6 @@
     "scripts": {
         "lint:cpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs .",
         "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
-        "make-pot": "@php bin/make-pot.php",
         "rename": "@php bin/rename.php"
     },
     "config": {
@@ -43,7 +42,6 @@
         }
     },
     "scripts-descriptions": {
-        "rename": "Rename the theme using themerename.json. Add -- --dry-run to preview.",
-        "make-pot": "Build public/lang/{text-domain}.pot with the theme's and the Backdrop framework's strings."
+        "rename": "Rename the theme using themerename.json. Add -- --dry-run to preview."
     }
 }

@@ -14,12 +14,14 @@
 		"url": "https://github.com/backdrop-dev/momentum/issues"
 	},
 	"devDependencies": {
+		"node-wp-i18n": "^1.2.3",
 		"sass": "^1.93.3",
 		"vite": "^7.3.7"
 	},
 	"scripts": {
 		"watch": "vite build --watch",
-		"build": "vite build"
+		"build": "vite build",
+		"pot": "node bin/make-pot.cjs"
 	},
 	"overrides": {
 		"rollup": "^4.59.0",

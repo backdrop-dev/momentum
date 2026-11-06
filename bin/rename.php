@@ -188,7 +188,12 @@ $old_pot = "{$root}/public/lang/{$from['Slug']}.pot";
 
 if ( is_file( $old_pot ) ) {
 	unlink( $old_pot );
-	passthru( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( __DIR__ . '/make-pot.php' ) );
+
+	if ( is_dir( "{$root}/node_modules/node-wp-i18n" ) ) {
+		passthru( 'npm run pot --prefix ' . escapeshellarg( $root ) );
+	} else {
+		echo "Run `npm install` and `npm run pot` to rebuild the translation template as public/lang/{$to['Slug']}.pot.\n";
+	}
 }
 
 echo "Done. Check the changes with `git diff`, then search for anything the rename couldn't know about.\n";

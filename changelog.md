@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Added
-- `composer make-pot` builds one translation template, `public/lang/momentum.pot`, with the theme's strings and the Backdrop framework's (`backdrop` text domain), which use the theme's translations. It needs only PHP. `composer rename` rebuilds it under the new text domain.
+- `npm run pot` builds one translation template, `public/lang/momentum.pot`, with [node-wp-i18n](https://github.com/cedaro/node-wp-i18n). It holds the theme's strings and the Backdrop framework's (`backdrop` text domain), which use the theme's translations. `composer rename` rebuilds it under the new text domain.
 - `composer rename` renames the theme from `themerename.json`: the namespace, name, slug (text domain, hooks, handles, option and function names), author details and copyright year. `composer rename -- --dry-run` previews it. `themerename.json` gains the `Slug` and `Namespace` fields it needs.
 - A "Starting points" section in the readme, listing what's switched on but left for you to finish (header image, meta icons) and what's empty on purpose (`chassis.json`, `screen.scss`, `app.js`).
 - `.github/workflows/build.yml` checks every PHP file on PHP 7.4 and 8.3, and runs the asset build, on each push to `develop` and each pull request.
