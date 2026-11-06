@@ -4,21 +4,28 @@
 	"version": "0.0.1",
 	"author": "Benjamin Lu",
 	"license": "GPL-2.0+",
-	"homepage": "https://luthemes.com/portfolio/generosity",
+	"homepage": "https://luthemes.com/portfolio/momentum",
 	"main": "resources/js/app.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/luthemes/generosity.git"
+		"url": "git+https://github.com/backdrop-dev/momentum.git"
 	},
 	"bugs": {
-		"url": "https://github.com/luthemes/generosity/issues"
+		"url": "https://github.com/backdrop-dev/momentum/issues"
 	},
-  "devDependencies": {
-    "sass": "^1.93.3",
-    "vite": "^7.2.1"
-  },
-  "scripts": {
-    "watch": "vite build --watch",
-    "build": "vite build"
-  }
+	"devDependencies": {
+		"sass": "^1.93.3",
+		"vite": "^7.3.7"
+	},
+	"scripts": {
+		"watch": "vite build --watch",
+		"build": "vite build"
+	},
+	"overrides": {
+		"rollup": "^4.59.0",
+		"immutable": "^5.1.5"
+	},
+	"engines": {
+		"node": "^20.19.0 || >=22.12.0"
+	}
 }

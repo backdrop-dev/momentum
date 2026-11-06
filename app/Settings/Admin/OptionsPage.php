@@ -15,7 +15,6 @@ namespace Momentum\Settings\Admin;
 
 use Backdrop\Contracts\Bootable;
 use Momentum\Settings\Admin\Views;
-use function Backdrop\Mix\asset;
 
 /**
  * Options page class.
@@ -155,7 +154,6 @@ class OptionsPage implements Bootable {
 
 		// Print custom styles.
 		add_action( 'admin_head', array( $this, 'print_styles' ) );
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
 
 		// Get the current view and boot it.
 		$view = $this->currentView();
@@ -183,10 +181,6 @@ class OptionsPage implements Bootable {
 		</style>
 	<?php }
 
-	public function admin_styles() {
-		wp_enqueue_style( 'generosity-admin-styles', asset( 'assets/css/admin.css' ), null, null );
-	}
-
 	/**
 	 * Outputs the settings page to the screen.
 	 *
@@ -200,7 +194,7 @@ class OptionsPage implements Bootable {
 			<h1 class="wp-heading-inline"><?php echo esc_html( $this->label ) ?></h1>
 
 			<?php if ( current_user_can( 'customize' ) ) : ?>
-				<a href="<?php esc_url( wp_customize_url() ) ?>" class="hide-if-no-js page-title-action"><?php esc_html_e( 'Customize', 'momentum' ) ?></a>
+				<a href="<?php echo esc_url( wp_customize_url() ) ?>" class="hide-if-no-js page-title-action"><?php esc_html_e( 'Customize', 'momentum' ) ?></a>
 			<?php endif ?>
 
 			<div class="wp-filter">
@@ -236,7 +230,7 @@ class OptionsPage implements Bootable {
 					$url = remove_query_arg( 'view', $url );
 				endif; ?>
 
-				<li class="<?php sanitize_html_class( $view->name() ) ?>">
+				<li class="<?php echo esc_attr( sanitize_html_class( $view->name() ) ) ?>">
 					<?php printf(
 						'<a href="%s"%s>%s</a>',
 						esc_url( $url ),
@@ -364,6 +358,7 @@ class OptionsPage implements Bootable {
 			return $this->views[ $current ];
 		}
 
-		return null;
+		// Fall back to the General tab for an unknown or missing view.
+		return isset( $this->views['general'] ) ? $this->views['general'] : null;
 	}
 }

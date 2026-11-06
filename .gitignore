@@ -1,3 +1,6 @@
 node_modules
 public/assets
 vendor
+
+# Composer writes this on install. The framework is pinned in composer.json instead.
+composer.lock

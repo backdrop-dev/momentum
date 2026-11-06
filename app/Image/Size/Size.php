@@ -133,7 +133,7 @@ class Size implements JsonSerializable {
 	 */
 	public function label() {
 		return apply_filters(
-			"generosity/image/size/{$this->name}/label",
+			"momentum/image/size/{$this->name}/label",
 			$this->label ?: $this->name(),
 			$this
 		);

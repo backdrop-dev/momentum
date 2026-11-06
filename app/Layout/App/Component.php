@@ -60,7 +60,7 @@ class Component implements Bootable {
 		add_action( 'after_setup_theme', [ $this, 'register' ] );
 
 		// Register default layouts.
-		add_action( 'generosity/global/layout/register', [ $this, 'registerDefaultLayouts' ] );
+		add_action( 'momentum/global/layout/register', [ $this, 'registerDefaultLayouts' ] );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class Component implements Bootable {
 	public function register(): void {
 
 		// Hook for registering custom layouts.
-		do_action( 'generosity/global/layout/register', $this->layouts );
+		do_action( 'momentum/global/layout/register', $this->layouts );
 	}
 
 	/**

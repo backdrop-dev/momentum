@@ -108,7 +108,7 @@ class Layout implements JsonSerializable {
 	public function label() {
 
 		return apply_filters(
-			"generosity/layout/{$this->name}/label",
+			"momentum/layout/{$this->name}/label",
 			$this->label ?: $this->name(),
 			$this
 		);
