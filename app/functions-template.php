@@ -27,7 +27,7 @@ function sep( $sep = '' ) {
 	return apply_filters(
 		'momentum/sep',
 		sprintf(
-			' <span class="sep">%s</span> ',
+			' <span class="entry__sep">%s</span> ',
 			$sep ?: esc_html_x( '&middot;', 'meta separator', 'momentum' )
 		)
 	);
