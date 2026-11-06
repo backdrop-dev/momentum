@@ -13,6 +13,7 @@
 - The theme's own stylesheet and script only load once something is in them. Both start empty, so a page loads just Chassis's files.
 
 ### Fixed
+- Class names follow BEM throughout: the metadata separator is `.entry__sep` (was `.sep`), and the footer credit links are `.app-footer__link` (were `.home-link`, `.cp-link` and `.theme-link`).
 - The layout picker's images were broken, and the customizer requested scripts that didn't exist.
 - The settings page's Customize link and tab classes were empty, and an unknown tab caused a fatal error.
 - The post and page templates didn't close `.entry-content`, and single posts referred to Generosity's code.

@@ -53,12 +53,16 @@ return [
 
 	'theme_footer_custom_credit' => function() {
 		$year = gmdate( 'Y' ); // Get the current year
-		$copyright = sprintf( __( "&#169; %1\$s. %2\$s.", 'momentum' ), $year, Backdrop\Site\render_home_link() );
+
+		// Every footer link gets the same BEM class, `.app-footer__link`.
+		$link = [ 'class' => 'app-footer__link' ];
+
+		$copyright = sprintf( __( "&#169; %1\$s. %2\$s.", 'momentum' ), $year, Backdrop\Site\render_home_link( $link ) );
 
 		if ( is_classicpress() ) {
-			$footer_text = sprintf( __( "Powered by %1\$s and %2\$s.", 'momentum' ), Backdrop\Site\render_cp_link(), Backdrop\Site\render_theme_link() );
+			$footer_text = sprintf( __( "Powered by %1\$s and %2\$s.", 'momentum' ), Backdrop\Site\render_cp_link( $link ), Backdrop\Site\render_theme_link( $link ) );
 		} else {
-			$footer_text = sprintf( __( "Powered by %1\$s and %2\$s.", 'momentum' ), Backdrop\Site\render_wp_link(), Backdrop\Site\render_theme_link() );
+			$footer_text = sprintf( __( "Powered by %1\$s and %2\$s.", 'momentum' ), Backdrop\Site\render_wp_link( $link ), Backdrop\Site\render_theme_link( $link ) );
 		}
 
 		return $copyright . ' <br /> ' . $footer_text;
