@@ -1,7 +1,7 @@
 {
 	"name": "@luthemes/momentum",
 	"description": "Momentum is a minimal and flexible starter theme designed to provide a clean slate for developers. It focuses on simplicity and performance, making it ideal for building modern ClassicPress themes.",
-	"version": "0.0.1",
+	"version": "0.0.5",
 	"author": "Benjamin Lu",
 	"license": "GPL-2.0+",
 	"homepage": "https://luthemes.com/portfolio/momentum",
