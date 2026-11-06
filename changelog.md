@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Changed
-- Built on [Chassis](https://github.com/techkodeninja/chassis) (`techkodeninja/chassis`): the page skeleton, menu, posts, widgets, comments and pagination come from it, and the design is set in `chassis.json`. The templates use its classes (`.app-header`, `.app-nav`, `.app-content`, `.entry__*` and so on), and `resources/scss` only has what Chassis doesn't cover.
+- Built on [Chassis](https://github.com/techkodeninja/chassis) (`techkodeninja/chassis`): the page skeleton, menu, posts, widgets, comments and pagination come from it, and the design is set in `chassis.json`. The templates use its classes (`.app-header`, `.app-nav`, `.app-content`, `.entry__*` and so on). `chassis.json` and `screen.scss` are empty, so a new theme starts from Chassis's defaults.
 - Requires `backdrop-dev/framework` and `backdrop-dev/fonts` from `develop`, pinned to tested commits. `backdrop-dev/customize` (now part of the framework) and `backdrop-dev/mix` are no longer used; assets load with `Momentum\Vite\asset()`.
 - vite 7.3.7 or later, with Rollup and Immutable kept at patched versions; Node 20.19 or 22.12 and later.
 
