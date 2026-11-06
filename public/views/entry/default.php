@@ -1,17 +1,18 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php Backdrop\Post\display_title(); ?>
-		<div class="entry-metadata">
+	<header class="entry__header">
+		<?php Backdrop\Post\display_title( [ 'class' => 'entry__title', 'link_class' => 'entry__title-anchor' ] ); ?>
+		<div class="entry__metadata">
+			<?php Backdrop\Post\display_date(); ?>
 			<?php Backdrop\Post\display_author( [ 'before' => Momentum\sep() ] ); ?>
-		 	<?php Backdrop\Post\display_date( [ 'before' => Momentum\sep() ] ); ?>
 			<?php Backdrop\Post\display_comments_link( [ 'before' => Momentum\sep() ] ); ?>
 		</div>
 	</header>
 	<?php if ( has_post_thumbnail() ) : ?>
-		<picture class="post-thumbnail">
-			<?php the_post_thumbnail( Momentum\Tools\Mod::get( 'theme_content_feature_image' ) ); ?>
-		</picture>
+		<a class="entry__thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php the_post_thumbnail( Momentum\Tools\Mod::get( 'theme_content_feature_image', Momentum\Tools\Mod::fallback( 'featured_image_size' ) ) ); ?>
+		</a>
 	<?php endif; ?>
-	<div class="entry-content">
+	<div class="entry__content">
 		<?php the_excerpt(); ?>
+	</div>
 </article>

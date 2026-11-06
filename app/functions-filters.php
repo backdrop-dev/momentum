@@ -53,3 +53,40 @@ add_filter( 'backdrop/view/content/data', function( $data ) {
 	return $data;
 
 } );
+
+/**
+ * Shows social menu links as icons, with the title kept for screen readers.
+ *
+ * Looks in `public/svg/social-icons/` for an icon named after the link's site
+ * (github.com -> github), then after its title. A link with no matching icon keeps its
+ * title as text.
+ *
+ * @since  0.0.1
+ * @access public
+ * @param  array    $items The menu items.
+ * @param  stdClass $args  The menu arguments.
+ * @return array
+ */
+add_filter( 'wp_nav_menu_objects', function( $items, $args ) {
+
+	if ( 'social' !== $args->theme_location ) {
+		return $items;
+	}
+
+	foreach ( $items as $item ) {
+
+		$host  = preg_replace( '/^www\./', '', (string) wp_parse_url( $item->url, PHP_URL_HOST ) );
+		$names = array_filter( [ strtok( $host, '.' ), sanitize_title( $item->title ) ] );
+
+		foreach ( $names as $name ) {
+			$icon = get_parent_theme_file_path( "public/svg/social-icons/{$name}.svg" );
+
+			if ( file_exists( $icon ) ) {
+				$item->title = file_get_contents( $icon ) . '<span class="screen-reader-text">' . esc_html( $item->title ) . '</span>'; // phpcs:ignore
+				break;
+			}
+		}
+	}
+
+	return $items;
+}, 10, 2 );

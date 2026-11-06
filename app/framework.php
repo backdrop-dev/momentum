@@ -22,7 +22,7 @@
 # be access via the `Backdrop\app();` function or the `Backdrop\App` static class after
 # the application has been booted.
 
-$theme = new Backdrop\Core\Application();
+$theme = function_exists( 'Backdrop\booted' ) && Backdrop\booted() ? Backdrop\app() : new Backdrop\Core\Application();
 
 # ------------------------------------------------------------------------------
 # Register default service providers with the application.
@@ -33,7 +33,9 @@ $theme = new Backdrop\Core\Application();
 # theme.
 $theme->provider( Backdrop\Customize\Provider::class );
 $theme->provider( Backdrop\Fonts\Provider::class );
-$theme->provider( Backdrop\Mix\Provider::class );
+// Chassis: the page skeleton (header, menu, content and sidebar, footer), components and
+// the menu script, styled by `chassis.json`. It loads before the theme's own stylesheet.
+$theme->provider( Techkodeninja\Chassis\Providers\Backdrop::class );
 
 # ------------------------------------------------------------------------------
 # Register additional service providers for the theme.
@@ -52,6 +54,7 @@ $theme->provider( Momentum\Layout\Provider::class );
 $theme->provider( Momentum\Menu\Provider::class );
 $theme->provider( Momentum\Settings\Provider::class );
 $theme->provider( Momentum\Sidebar\Provider::class );
+$theme->provider( Momentum\Vite\Provider::class );
 
 # ------------------------------------------------------------------------------
 # Perform bootstrap actions.

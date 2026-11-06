@@ -10,7 +10,7 @@
  */
 
 namespace Momentum;
-use function Backdrop\Mix\asset;
+use function Momentum\Vite\asset;
 
 /**
  * Enqueue Scripts and Styles
@@ -24,15 +24,15 @@ use function Backdrop\Mix\asset;
  */
 add_action( 'wp_enqueue_scripts', function() {
 
-	// Rather than enqueue the main style.css stylesheet, we are going to enqueue screen.css.
-	wp_enqueue_style( 'momentum-screen', asset( 'resources/scss/screen.scss' ), null, null );
+	// Assets are enqueued by their source path. `Momentum\Vite\asset()` looks them up in Vite's
+	// manifest.json, which maps them to the built files, whose names change with their contents.
 
-	// Enqueue theme scripts
-	wp_enqueue_script( 'momentum-app', asset( 'resources/js/app.js' ), [ 'jquery' ], null, true );
-	wp_localize_script( 'momentum-app', 'momentumScreenReaderText', [
-		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'momentum' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'momentum' ) . '</span>',
-	] );
+	// The theme's own styles, loaded after Chassis (the `chassis` handle) so they can build on it.
+	// The page structure, the menu and the design settings in `chassis.json` come from Chassis.
+	wp_enqueue_style( 'momentum-screen', asset( 'resources/scss/screen.scss' ), wp_style_is( 'chassis', 'registered' ) ? [ 'chassis' ] : [], null );
+
+	// The theme's own scripts. Chassis's script already runs the menu.
+	wp_enqueue_script( 'momentum-app', asset( 'resources/js/app.js' ), [], null, true );
 
 	// Loads ClassicPress' comment-reply script where appropriate.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

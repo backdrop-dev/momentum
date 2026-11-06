@@ -1,0 +1,19 @@
+////
+/// Footer: the widgets and social menu above the credit.
+///
+/// @group Components
+////
+
+@use 'techkodeninja/chassis/scss/02.tools' as ui;
+
+.app-footer {
+
+	&__widgets {
+		margin-bottom: ui.space( l );
+		text-align: left;
+	}
+
+	.social-menu {
+		margin-bottom: ui.space( m );
+	}
+}

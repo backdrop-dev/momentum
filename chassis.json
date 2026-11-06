@@ -1,0 +1,11 @@
+{
+	"$schema": "https://raw.githubusercontent.com/techkodeninja/chassis/develop/schemas/chassis.schema.json",
+	"font": {
+		"body": "'Merriweather', serif",
+		"heading": "'Fira Sans', sans-serif",
+		"meta": "'Fira Sans', sans-serif"
+	},
+	"menu": {
+		"toggle": "bottom-left"
+	}
+}
