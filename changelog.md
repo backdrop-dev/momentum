@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+### Added
+- A "Starting points" section in the readme, listing what's switched on but left for you to finish (header image, meta icons) and what's empty on purpose (`chassis.json`, `screen.scss`, `app.js`).
+- `.github/workflows/build.yml` checks every PHP file on PHP 7.4 and 8.3, and runs the asset build, on each push to `develop` and each pull request.
+
 ## [0.0.5] - 11.06.2026
 ### Changed
 - Built on [Chassis](https://github.com/techkodeninja/chassis) (`techkodeninja/chassis`): the page skeleton, menu, posts, widgets, comments and pagination come from it, and the design is set in `chassis.json`. The templates use its classes (`.app-header`, `.app-nav`, `.app-content`, `.entry__*` and so on). `chassis.json` and `screen.scss` are empty, so a new theme starts from Chassis's defaults.
