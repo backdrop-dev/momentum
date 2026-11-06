@@ -27,7 +27,7 @@ class Svg {
 	public static function render( $group, $name ) {
 		$svg = file_get_contents( static::path( $group, "{$name}.svg" ) );
 
-		return apply_filters( "generosity/svg/{$group}/{$name}", $svg ?: '' );
+		return apply_filters( "momentum/svg/{$group}/{$name}", $svg ?: '' );
 	}
 
 	/**

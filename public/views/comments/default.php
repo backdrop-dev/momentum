@@ -4,8 +4,8 @@ if ( post_password_required() ) {
 }
 ?>
 
-<?php if ( comments_open() ) { ?>
-	<section id="comments-area" class="comments-area">
+<?php if ( have_comments() || comments_open() ) { ?>
+	<section id="comments" class="comments-area">
 		<?php if ( have_comments() ) { ?>
 			<h2 class="comments-title">
 				<?php $count = get_comments_number(); ?>
@@ -31,10 +31,13 @@ if ( post_password_required() ) {
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
 			<nav id="comment-nav-below" class="comment-navigation" role="navigation">
-				<div class="comment-previous"><?php previous_comments_link( '<i class="fa fa-arrow-circle-o-left"></i> ' . esc_html__( 'Older Comments', 'momentum' ) ); ?></div>
-				<div class="comment-next"><?php next_comments_link( '<i class="fa fa-arrow-circle-o-right"></i> ' . esc_html__( 'Newer Comments', 'momentum' ) ); ?></div>
+				<div class="comment-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'momentum' ) ); ?></div>
+				<div class="comment-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'momentum' ) ); ?></div>
 			</nav>
 		<?php } ?>
+		<?php if ( ! comments_open() ) : ?>
+			<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'momentum' ); ?></p>
+		<?php endif; ?>
 		<?php comment_form(); ?>
 	</section>
 <?php } ?>

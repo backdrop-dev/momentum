@@ -19,7 +19,7 @@ use Backdrop\App;
 use Backdrop\Contracts\Bootable;
 use Momentum\Tools\Collection;
 
-use function Backdrop\Mix\asset;
+use function Momentum\Vite\asset;
 use Backdrop\Customize\Component as Customize;
 
 class Component extends Customize implements Bootable {
@@ -52,10 +52,10 @@ class Component extends Customize implements Bootable {
 	public function controlsEnqueue() {
 
 		// Enqueue controls style.
-		wp_enqueue_style( 'momentum-customize-controls', asset( 'assets/css/customize-controls.css' ), [], null );
+		wp_enqueue_style( 'momentum-customize-controls', asset( 'resources/scss/customize-controls.scss' ), [], null );
 
 		// Enqueue controls script.
-		wp_enqueue_script( 'momentum-customize-controls', asset( 'assets/js/customize-controls.js' ), [ 'customize-controls' ], null, true );
+		wp_enqueue_script( 'momentum-customize-controls', asset( 'resources/js/customize-controls.js' ), [ 'customize-controls' ], null, true );
 
 		// Set up a new collection to store our JSON.
 		$json = new Collection();
@@ -66,7 +66,7 @@ class Component extends Customize implements Bootable {
 		}
 
 		// Pass JSON to the controls script.
-		wp_localize_script( 'momentum-customize-controls', 'momentumCustomizeControls', $json );
+		wp_localize_script( 'momentum-customize-controls', 'momentumCustomizeControls', $json->jsonSerialize() );
 	}
 
 	/**
@@ -78,11 +78,8 @@ class Component extends Customize implements Bootable {
 	 */
 	public function previewEnqueue() {
 
-		// Enqueue preview style.
-		wp_enqueue_style( 'momentum-customize-preview', asset( 'assets/css/customize-preview.css' ), [], null );
-
 		// Enqueue preview script.
-		wp_enqueue_script( 'momentum-customize-preview', asset( 'assets/js/customize-preview.js' ), [ 'customize-preview' ], null, true );
+		wp_enqueue_script( 'momentum-customize-preview', asset( 'resources/js/customize-preview.js' ), [ 'customize-preview' ], null, true );
 
 		// Set up a new collection to store our JSON.
 		$json = new Collection();
@@ -93,6 +90,6 @@ class Component extends Customize implements Bootable {
 		}
 
 		// Pass JSON to the preview script.
-		wp_localize_script( 'momentum-customize-preview', 'momentumCustomizePreview', $json );
+		wp_localize_script( 'momentum-customize-preview', 'momentumCustomizePreview', $json->jsonSerialize() );
 	}
 }

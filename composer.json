@@ -6,7 +6,7 @@
         "classicpress",
         "theme"
     ],
-    "homepage": "https://luthemes.com/portfolio/creativity",
+    "homepage": "https://luthemes.com/portfolio/momentum",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
@@ -22,10 +22,9 @@
     },
     "require": {
         "php": ">=7.4",
-        "backdrop-dev/framework": "1.0.x-dev",
-        "backdrop-dev/customize": "dev-new-component",
-        "backdrop-dev/fonts": "dev-develop",
-        "backdrop-dev/mix": "dev-develop"
+        "backdrop-dev/framework": "dev-develop#7989430268cc98d99a993e0e6bd6f11d3f418a8a",
+        "backdrop-dev/fonts": "dev-develop#c64cb8aafbacae0eea6231b0d86228c8a5d8940d",
+        "techkodeninja/chassis": "~0.0.8"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
