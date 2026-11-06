@@ -10,6 +10,7 @@
 - The Layout setting changes the preview without reloading it.
 - A no-results template, pagination, post navigation, footer widgets and a social menu with icons.
 - If the `vendor` folder is missing, administrators see a notice and visitors get a 503 page instead of a fatal error.
+- The theme's own stylesheet and script only load once something is in them. Both start empty, so a page loads just Chassis's files.
 
 ### Fixed
 - The layout picker's images were broken, and the customizer requested scripts that didn't exist.
