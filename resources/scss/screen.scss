@@ -1,15 +1,22 @@
 ////
-/// Momentum's own styles.
+/// Momentum's own styles. Empty on purpose: Momentum is a starter theme.
 ///
 /// The page skeleton, the menu, posts, widgets, comments and the other shared pieces come from
-/// Chassis (techkodeninja/chassis), which loads before this stylesheet. The design (colors,
-/// fonts, spacing, the menu button) is set in `chassis.json` in the theme's root folder.
+/// Chassis (techkodeninja/chassis), which loads before this stylesheet, and the design (colors,
+/// fonts, spacing, the menu button) goes in `chassis.json` in the theme's root folder.
 ///
-/// Add styles here only for what Chassis doesn't cover. The folders are numbered like Chassis's
-/// layers (`07.components` is the components layer). To use Chassis's breakpoints and design
-/// values in a partial, load its tools, which print no CSS of their own:
+/// Add styles here only for what Chassis doesn't cover, in folders numbered like Chassis's
+/// layers (for example `07.components/01.entries/_index.scss`, forwarded from here with
+/// `@forward '07.components';`). To use Chassis's breakpoints and design values in a partial,
+/// load its tools, which print no CSS of their own:
 ///
 ///     @use 'techkodeninja/chassis/scss/02.tools' as ui;
+///
+///     .entry__metadata {
+///         margin-bottom: ui.space( m );
+///
+///         @include ui.up( medium ) { font-size: 1rem; }
+///     }
 ///
 /// Vite finds them in `vendor/`, so run `composer install` before `npm run build`.
 ///
@@ -17,5 +24,3 @@
 /// @author Benjamin Lu <benlumia007@gmail.com>
 /// @link   https://luthemes.com/portfolio/momentum
 ////
-
-@forward '07.components';
