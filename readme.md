@@ -37,13 +37,53 @@ What comes from where:
 * **`resources/scss/`:** Momentum's own styles, for anything Chassis doesn't cover. `screen.scss` is empty, since Momentum is a starter theme. Load Chassis's tools in a partial with `@use 'techkodeninja/chassis/scss/02.tools' as ui;` to use its breakpoints (`ui.up( medium )`) and values (`ui.space( m )`, `ui.color( content-muted )`).
 * **Customize → Theme: Content → Layout:** left sidebar, right sidebar or no sidebar, which sets Chassis's `app-content--sidebar-left` or `--sidebar-right`.
 
+## Renaming
+
+Make Momentum your own theme in one step. In `themerename.json`, fill in `to` with your theme's details:
+
+```json
+"to": {
+	"Name": "My Theme",
+	"Slug": "my-theme",
+	"Namespace": "MyTheme",
+	"Description": "My Theme is…",
+	"Uri": "https://example.com/my-theme",
+	"Author": "Your Name",
+	"AuthorEmail": "you@example.com",
+	"AuthorUri": "https://example.com",
+	"Year": "2026"
+}
+```
+
+Then preview and run it:
+
+<pre>
+composer rename -- --dry-run
+composer rename
+</pre>
+
+It rewrites:
+* the PHP namespace (`Momentum\…` becomes `MyTheme\…`),
+* the theme name,
+* the slug: the text domain, hooks (`my-theme/…`), handles (`my-theme-…`) and package names, with underscores where PHP needs them (`my_theme_settings`),
+* the author details and URLs,
+* the copyright year.
+
+It then rebuilds Composer's autoloader and sets `from` to your new details, so you can run it again later. `Name`, `Slug` and `Namespace` are required; the other fields are optional.
+
+It doesn't touch `vendor`, `node_modules`, built assets, images or `changelog.md`. Two things it leaves for you:
+* The package vendor names: `backdrop-dev/` in `composer.json` and `@luthemes/` in `package.json`.
+* `package-lock.json`, which `npm install` updates.
+
+Check the result with `git diff`.
+
 ## Starting points
 
 Momentum is a starting point, so some things are switched on but left for you to finish, and some files are samples. Wire them up or delete them:
 
 | What | Where | State |
 |---|---|---|
-| Your theme's name, author and URIs | `themerename.json`, `style.css` | Momentum's own. Set yours in `themerename.json`; `style.css` stays at version `0.0.1` for your first release. |
+| Your theme's name, author and URIs | `themerename.json` | Momentum's own. Fill in `to` and run `composer rename` (see [Renaming](#renaming)). `style.css` stays at version `0.0.1` for your first release. |
 | Design | `chassis.json` | Empty, so Chassis's defaults show. Add colors, fonts and spacing. |
 | Your own styles and scripts | `resources/scss/screen.scss`, `resources/js/app.js` | Empty. Each loads once it has something in it. |
 | Header image | `app/CustomHeader/`, `public/images/headers/` | Header image support is on, with three sample images, but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |

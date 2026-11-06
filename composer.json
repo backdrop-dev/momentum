@@ -33,11 +33,15 @@
     },
     "scripts": {
         "lint:cpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs .",
-        "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."
+        "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+        "rename": "@php bin/rename.php"
     },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts-descriptions": {
+        "rename": "Rename the theme using themerename.json. Add -- --dry-run to preview."
     }
 }
