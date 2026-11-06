@@ -37,6 +37,26 @@ What comes from where:
 * **`resources/scss/`:** Momentum's own styles, for anything Chassis doesn't cover. `screen.scss` is empty, since Momentum is a starter theme. Load Chassis's tools in a partial with `@use 'techkodeninja/chassis/scss/02.tools' as ui;` to use its breakpoints (`ui.up( medium )`) and values (`ui.space( m )`, `ui.color( content-muted )`).
 * **Customize → Theme: Content → Layout:** left sidebar, right sidebar or no sidebar, which sets Chassis's `app-content--sidebar-left` or `--sidebar-right`.
 
+## Starting points
+
+Momentum is a starting point, so some things are switched on but left for you to finish, and some files are samples. Wire them up or delete them:
+
+| What | Where | State |
+|---|---|---|
+| Your theme's name, author and URIs | `themerename.json`, `style.css` | Momentum's own. Set yours in `themerename.json`; `style.css` stays at version `0.0.1` for your first release. |
+| Design | `chassis.json` | Empty, so Chassis's defaults show. Add colors, fonts and spacing. |
+| Your own styles and scripts | `resources/scss/screen.scss`, `resources/js/app.js` | Empty. Each loads once it has something in it. |
+| Header image | `app/CustomHeader/`, `public/images/headers/` | Header image support is on, with three sample images, but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |
+| Meta icons | `public/svg/meta-icons/` | Calendar, comment and user icons, not used yet. For post metadata, if you want icons. |
+| Layout picker images | `public/images/layouts/` | Used by Customize → Layout. `header-image.jpg` isn't used. |
+| Menus | `config/_settings-menus.php` | Primary and Social. |
+| Widget areas | `config/_settings-sidebars.php` | Primary and Footer. |
+| Theme settings page | `app/Settings/` | Appearance → Momentum, with recommended plugins from `config/plugins.json`. |
+
+## Checks
+
+Each push and pull request runs `.github/workflows/build.yml`. It checks every PHP file for syntax errors on PHP 7.4 and 8.3, then installs the dependencies and runs `npm run build`, so a theme copied from Momentum always builds. `cpcs.yml` checks the ClassicPress coding standards on pushes to `develop`.
+
 ## Copyright and License
 
 Momentum is licensed under the [GNU GPL](https://www.gnu.org/licenses/gpl-2.0.html), version 2 or later.
