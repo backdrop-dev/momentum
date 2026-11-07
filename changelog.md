@@ -10,6 +10,7 @@
 - The workflows use `actions/checkout@v7` and `actions/setup-node@v7`, which run on Node 24; GitHub is retiring the Node 20 that `@v4` used.
 
 ### Fixed
+- The coding-standards check skips `bin/` (the rename, `.pot` and export tools, which never run inside ClassicPress) and `dist/`. Since `composer rename` was added, it had failed on `bin/rename.php`. It also runs on pull requests now, not only after merging to `develop`.
 - `style.css` declares `Domain Path: /public/lang`. The theme already loaded its translations from there, but Backdrop looked in the theme's root folder.
 
 ## [0.0.5] - 11.06.2026
