@@ -46,6 +46,9 @@ makepot( {
 		// The theme's tools and build output.
 		'bin/.*',
 		'public/assets/.*',
+
+		// The exported copy (npm run export).
+		'dist/.*',
 	],
 } ).then( ( wpPackage ) => {
 	if ( wpPackage ) {
