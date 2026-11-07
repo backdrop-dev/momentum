@@ -1,3 +1,20 @@
 {
-	"$schema": "https://raw.githubusercontent.com/techkodeninja/chassis/develop/schemas/chassis.schema.json"
+	"$schema": "https://raw.githubusercontent.com/techkodeninja/chassis/develop/schemas/chassis.schema.json",
+	"settings": {
+		"palette": {},
+		"font": {},
+		"layout": {}
+	},
+	"styles": {
+		"color": {},
+		"elements": {},
+		"header": {},
+		"primary-menu": {},
+		"menu-button": {},
+		"content": {},
+		"post": {},
+		"widget": {},
+		"comments": {},
+		"footer": {}
+	}
 }
