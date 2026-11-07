@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+### Changed
+- `chassis.json` is an empty skeleton of Chassis's `settings` and `styles` shape: `settings` (`palette`, `font`, `layout`) and `styles` (`color`, `elements`, and each part of the page: `header`, `primary-menu`, `menu-button`, `content`, `post`, `widget`, `comments`, `footer`). Every group is empty, so a new theme still starts from Chassis's defaults, and shows where each setting goes.
+- Requires Chassis 0.1.7 or later, which reads that shape.
+
 ## [0.0.6] - 11.06.2026
 ### Added
 - `npm run export` copies only what a site needs into `dist/{text-domain}/`, ready to zip, like Prismatic's export. It includes `chassis.json`, strips `.git` folders from `vendor`, and stops if the assets aren't built or `vendor` has the dev tools. `npm run build` builds and then exports.

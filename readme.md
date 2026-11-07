@@ -48,7 +48,7 @@ Momentum is built on [Chassis](https://github.com/techkodeninja/chassis), the sh
 What comes from where:
 
 * **Chassis:** the page skeleton (`.app`, `.app-header`, `.app-nav`, `.app-content`, `.app-main`, `.app-sidebar`, `.app-footer`), the mobile Menu button and dropdowns, posts (`.entry__*`), widgets, comments, pagination, buttons, cards and the grid.
-* **`chassis.json`:** the design: colors, fonts, spacing, widths and where the Menu button sits. It's empty, so Momentum uses Chassis's defaults; add only what you change, then refresh. There's nothing to build. See the [settings](https://github.com/techkodeninja/chassis#set-the-design-with-chassisjson).
+* **`chassis.json`:** the design, in Chassis's `settings` and `styles` shape. `settings` holds the `palette`, `font`s and `layout` widths; `styles` applies them to the site, to `elements` (links, headings, buttons) and to each part of the page: `header`, `primary-menu`, `menu-button`, `content`, `post`, `widget`, `comments`, `footer`. Name colors once in the palette and use them as `@name`, for example `"post": { "color": { "background": "@slate" } }`. Every group starts empty, so Momentum uses Chassis's defaults; fill in only what you change, then refresh. There's nothing to build. See [`settings` and `styles`](https://github.com/techkodeninja/chassis#settings-and-styles).
 * **`resources/scss/`:** Momentum's own styles, for anything Chassis doesn't cover. `screen.scss` is empty, since Momentum is a starter theme. Load Chassis's tools in a partial with `@use 'techkodeninja/chassis/scss/02.tools' as ui;` to use its breakpoints (`ui.up( medium )`) and values (`ui.space( m )`, `ui.color( content-muted )`).
 * **Customize → Theme: Content → Layout:** left sidebar, right sidebar or no sidebar, which sets Chassis's `app-content--sidebar-left` or `--sidebar-right`.
 
@@ -113,7 +113,7 @@ Momentum is a starting point, so some things are switched on but left for you to
 | What | Where | State |
 |---|---|---|
 | Your theme's name, author and URIs | `themerename.json` | Momentum's own. Fill in `to` and run `composer rename` (see [Renaming](#renaming)). `style.css` stays at version `0.0.1` for your first release. |
-| Design | `chassis.json` | Empty, so Chassis's defaults show. Add colors, fonts and spacing. |
+| Design | `chassis.json` | Every group is there but empty, so Chassis's defaults show. Add a palette in `settings.palette`, then fill in the parts in `styles`. |
 | Your own styles and scripts | `resources/scss/screen.scss`, `resources/js/app.js` | Empty. Each loads once it has something in it. |
 | Header image | `app/CustomHeader/`, `public/images/headers/` | Header image support is on, with three sample images, but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |
 | Meta icons | `public/svg/meta-icons/` | Calendar, comment and user icons, not used yet. For post metadata, if you want icons. |
