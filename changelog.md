@@ -6,6 +6,7 @@
 - `composer rename` renames the theme from `themerename.json`: the namespace, name, slug (text domain, hooks, handles, option and function names), author details and copyright year. `composer rename -- --dry-run` previews it. `themerename.json` gains the `Slug` and `Namespace` fields it needs.
 - A "Starting points" section in the readme, listing what's switched on but left for you to finish (header image, meta icons) and what's empty on purpose (`chassis.json`, `screen.scss`, `app.js`).
 - `.github/workflows/build.yml` checks every PHP file on PHP 7.4 and 8.3, and runs the asset build, on each push to `develop` and each pull request.
+- The workflows use `actions/checkout@v7` and `actions/setup-node@v7`, which run on Node 24; GitHub is retiring the Node 20 that `@v4` used.
 
 ### Fixed
 - `style.css` declares `Domain Path: /public/lang`. The theme already loaded its translations from there, but Backdrop looked in the theme's root folder.
