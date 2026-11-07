@@ -77,6 +77,20 @@ It doesn't touch `vendor`, `node_modules`, built assets, images or `changelog.md
 
 Check the result with `git diff`.
 
+## Translations
+
+All of the theme's text, and the Backdrop framework's, is in one translation template, `public/lang/momentum.pot`. Rebuild it after changing any text:
+
+<pre>
+npm run pot
+</pre>
+
+It uses [node-wp-i18n](https://github.com/cedaro/node-wp-i18n), which needs PHP on your path. Run `composer install` first so the framework is there to read. It collects the theme's strings (text domain `momentum`, plus the theme's name and details) and the framework's (text domain `backdrop`, from `vendor/backdrop-dev`). The rest of `vendor` is left out; `bin/make-pot.cjs` lists what's excluded.
+
+Translators make `momentum-{locale}.po` from it, for example `momentum-de_DE.po`, and compile it to `.mo` in `public/lang`. The framework's `backdrop` strings use the theme's translations, so that one file covers both. `style.css` points ClassicPress there with `Domain Path: /public/lang`.
+
+`composer rename` rebuilds the template under your new text domain.
+
 ## Starting points
 
 Momentum is a starting point, so some things are switched on but left for you to finish, and some files are samples. Wire them up or delete them:
@@ -92,6 +106,7 @@ Momentum is a starting point, so some things are switched on but left for you to
 | Menus | `config/_settings-menus.php` | Primary and Social. |
 | Widget areas | `config/_settings-sidebars.php` | Primary and Footer. |
 | Theme settings page | `app/Settings/` | Appearance → Momentum, with recommended plugins from `config/plugins.json`. |
+| Translations | `public/lang/` | Holds `momentum.pot`, with the theme's and Backdrop's text. Build it with `npm run pot` ([Translations](#translations)). |
 
 ## Checks
 
