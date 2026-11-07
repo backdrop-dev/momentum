@@ -61,7 +61,6 @@ class Customize extends Customizable {
 		] );
 
 		$manager->add_setting( 'theme_footer_custom_credit', [
-			// Translators: %s is the theme link.
 			'default'           => Mod::fallback( 'theme_footer_custom_credit' ),
             'transport'         => 'postMessage',
 			'sanitize_callback' => function( $value ) {
