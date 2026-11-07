@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - develop
+    pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,6 +23,8 @@ jobs:
               <file>.</file>
               ' phpcs.xml
             sed -i '/MY_DOMAIN/ s//momentum/' phpcs.xml
+            # bin/ holds command-line tools that never run inside ClassicPress, and dist/ is the exported copy.
+            sed -i 's#<file>.</file>#<file>.</file>\n\t<exclude-pattern>/bin/</exclude-pattern>\n\t<exclude-pattern>/dist/</exclude-pattern>#' phpcs.xml
             mv phpcs.xml phpcs.xml.dist
         - name: CPCS checks
           uses: 10up/wpcs-action@v1.7.0
