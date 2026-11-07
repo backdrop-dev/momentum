@@ -4,3 +4,6 @@ vendor
 
 # Composer writes this on install. The framework is pinned in composer.json instead.
 composer.lock
+
+# Theme export (npm run export)
+/dist

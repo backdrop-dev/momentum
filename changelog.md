@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- `npm run export` copies only what a site needs into `dist/{text-domain}/`, ready to zip, like Prismatic's export. It includes `chassis.json`, strips `.git` folders from `vendor`, and stops if the assets aren't built or `vendor` has the dev tools. `npm run build` builds and then exports.
 - `npm run pot` builds one translation template, `public/lang/momentum.pot`, with [node-wp-i18n](https://github.com/cedaro/node-wp-i18n). It holds the theme's strings and the Backdrop framework's (`backdrop` text domain), which use the theme's translations. `composer rename` rebuilds it under the new text domain.
 - `composer rename` renames the theme from `themerename.json`: the namespace, name, slug (text domain, hooks, handles, option and function names), author details and copyright year. `composer rename -- --dry-run` previews it. `themerename.json` gains the `Slug` and `Namespace` fields it needs.
 - A "Starting points" section in the readme, listing what's switched on but left for you to finish (header image, meta icons) and what's empty on purpose (`chassis.json`, `screen.scss`, `app.js`).

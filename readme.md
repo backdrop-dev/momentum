@@ -26,6 +26,21 @@ npm run build
 
 Run `composer install` first: the Sass build loads Chassis's tools from `vendor/`. `npm run watch` rebuilds the assets as you work. Assets are built by [Vite](https://vite.dev) into `public/assets`, and the theme loads them by their source path with `Momentum\Vite\asset()`, for example `asset( 'resources/scss/screen.scss' )`.
 
+## Exporting
+
+To upload the theme to a site, export a copy with only what ClassicPress needs:
+
+<pre>
+composer install --no-dev
+npm run build
+</pre>
+
+`npm run build` builds the assets, then runs `npm run export`, which copies the theme into `dist/momentum/`. Zip that folder and upload it in *Appearance → Themes → Add New*.
+
+The copy has `style.css`, `functions.php`, `index.php`, `chassis.json`, `readme.txt`, `screenshot.png` if you add one, and the `app`, `config`, `public` and `vendor` folders. It leaves out the sources (`resources`, `bin`), the dev config and `node_modules`. From `vendor`, it removes Composer's tools and any `.git` folders.
+
+The export stops if the assets aren't built, or if `vendor` still has the dev tools from a plain `composer install`. The folder is named after the text domain, so it follows `composer rename`. `bin/export-theme.cjs` lists what's copied.
+
 ## Chassis
 
 Momentum is built on [Chassis](https://github.com/techkodeninja/chassis), the shared structure and UI building blocks used by both ClassicPress themes and Novaris sites. `app/framework.php` registers its service provider, which loads Chassis's CSS, its ClassicPress add-on, the menu script and the theme's `chassis.json`.

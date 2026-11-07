@@ -19,8 +19,10 @@
 		"vite": "^7.3.7"
 	},
 	"scripts": {
+		"build": "npm run prod && npm run export",
 		"watch": "vite build --watch",
-		"build": "vite build",
+		"prod": "vite build",
+		"export": "node bin/export-theme.cjs",
 		"pot": "node bin/make-pot.cjs"
 	},
 	"overrides": {
