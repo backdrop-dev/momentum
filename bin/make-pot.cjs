@@ -23,11 +23,28 @@
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */
 
+const fs = require( 'fs' );
+const path = require( 'path' );
 const { makepot } = require( 'node-wp-i18n' );
+
+// The theme's details, from the style.css header.
+const css = fs.readFileSync( path.resolve( __dirname, '../style.css' ), 'utf8' );
+const header = ( field ) => {
+	const match = css.match( new RegExp( `^[\\s*#@]*${ field }:(.*)$`, 'mi' ) );
+
+	return match ? match[ 1 ].trim() : '';
+};
 
 makepot( {
 	type: 'wp-theme',
 	mainFile: 'style.css',
+
+	// Without these, node-wp-i18n leaves its `<!= … =!>` markers in the file
+	// comment and points bug reports at wordpress.org.
+	potComments: `Copyright (C) {year} ${ header( 'Author' ) }\nThis file is distributed under the ${ header( 'License' ) || 'same license as the theme' }.`,
+	potHeaders: {
+		'report-msgid-bugs-to': header( 'Theme URI' ),
+	},
 
 	// Keep the date unless a string changed, so rebuilding doesn't create a diff.
 	updateTimestamp: false,

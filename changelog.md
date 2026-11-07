@@ -10,6 +10,8 @@
 - The workflows use `actions/checkout@v7` and `actions/setup-node@v7`, which run on Node 24; GitHub is retiring the Node 20 that `@v4` used.
 
 ### Fixed
+- The `.pot` file's header comment no longer shows node-wp-i18n's `<!= … =!>` markers, and its bug-report link uses the theme's URI from `style.css` instead of wordpress.org.
+- A stray "Translators" comment in `app/Footer/Customize.php` was attached to the wrong string in the `.pot`.
 - The coding-standards check skips `bin/` (the rename, `.pot` and export tools, which never run inside ClassicPress) and `dist/`. Since `composer rename` was added, it had failed on `bin/rename.php`. It also runs on pull requests now, not only after merging to `develop`.
 - `style.css` declares `Domain Path: /public/lang`. The theme already loaded its translations from there, but Backdrop looked in the theme's root folder.
 

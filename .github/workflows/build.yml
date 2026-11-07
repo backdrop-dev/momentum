@@ -53,3 +53,12 @@ jobs:
       - run: npm run build
       - name: Check the built files
         run: test -s public/assets/manifest.json
+      # The translation template builds, with its own header, not node-wp-i18n's defaults.
+      - run: npm run pot
+      - name: Check the translation template
+        run: |
+          pot=public/lang/$( sed -n 's/^ \* Text Domain: *//p' style.css ).pot
+          test -s "$pot"
+          ! grep -q '<!=' "$pot"
+          ! grep -q 'wordpress.org/support' "$pot"
+          grep -q '^msgid "' "$pot"
