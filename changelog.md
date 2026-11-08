@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.0.7] - 11.07.2026
 ### Changed
 - `chassis.json` is an empty skeleton of Chassis's `settings` and `styles` shape: `settings` (`palette`, `font`, `layout`) and `styles` (`color`, `elements`, and each part of the page: `header`, `primary-menu`, `menu-button`, `content`, `post`, `widget`, `comments`, `footer`). Every group is empty, so a new theme still starts from Chassis's defaults, and shows where each setting goes.
 - Requires Chassis 0.1.7 or later, which reads that shape.
