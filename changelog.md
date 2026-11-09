@@ -1,6 +1,14 @@
 # Changelog
 
 ## [Unreleased]
+### Fixed
+- `style.css` tags match what Momentum has: `blog`, `one-column`, `two-columns`, `left-sidebar`, `right-sidebar`, `custom-menu`, `featured-images`, `footer-widgets`, `threaded-comments`, `translation-ready`. Removed tags for features it doesn't have (`light`, `custom-colors`, `custom-logo`, `wide-blocks`, `full-width-template`, `grid-layout`), `custom-header` (supported but no template shows it), `accessibility-ready` (needs a review first), and tags that aren't in the directory's list (`clean`, `minimal`, `modern`, `responsive`). Every theme made from Momentum starts with these.
+- `composer rename` replaces the theme's description. `themerename.json` looked for a different description from the one in `style.css`, `composer.json` and `package.json`, so a renamed theme kept Momentum's.
+
+### Changed
+- `readme.txt` is a fill-in template with every section, and a Copyright section that credits what Momentum bundles: Chassis, Backdrop, the fifteen fonts with their licenses (OFL 1.1, except Mountains of Christmas under Apache 2.0 and Ubuntu under the Ubuntu Font Licence 1.0), and the Font Awesome icons (CC BY 4.0, which requires attribution).
+
+## [Unreleased]
 ### Added
 - `.github/workflows/release.yml`: publishing a GitHub release builds the theme, with a fresh translation template, and attaches `{text-domain}.{version}.zip` to the release. The readme has a Releasing section.
 
