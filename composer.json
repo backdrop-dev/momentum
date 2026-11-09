@@ -23,7 +23,7 @@
     "require": {
         "php": ">=7.4",
         "backdrop-dev/framework": "^1.0.1",
-        "backdrop-dev/fonts": "dev-develop#c64cb8aafbacae0eea6231b0d86228c8a5d8940d",
+        "backdrop-dev/fonts": "^1.0.2",
         "techkodeninja/chassis": "^0.1.7"
     },
     "require-dev": {
