@@ -20,12 +20,12 @@
 		position: absolute;
 	}
 
+	// The layout images show at their own size (45×36). The border sits outside the image,
+	// so it doesn't shrink it.
 	img {
 		border: 3px solid transparent;
-		box-sizing: border-box;
+		box-sizing: content-box;
 		display: block;
-		height: auto;
-		width: 90px;
 	}
 
 	img:hover {

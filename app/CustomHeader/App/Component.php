@@ -56,7 +56,7 @@ class Component implements Bootable {
 
 		// Enable custom header support
 		add_theme_support('custom-header', [
-			'default-image' => get_template_directory_uri() . '/public/images/headers/andromeda-galaxy.png',
+			'default-image' => '',
 			'width'         => 1600,
 			'height'        => 400,
 			'flex-height'   => true,

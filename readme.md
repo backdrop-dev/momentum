@@ -41,6 +41,18 @@ The copy has `style.css`, `functions.php`, `index.php`, `chassis.json`, `readme.
 
 The export stops if the assets aren't built, or if `vendor` still has the dev tools from a plain `composer install`. The folder is named after the text domain, so it follows `composer rename`. `bin/export-theme.cjs` lists what's copied.
 
+## Releasing
+
+Publishing a release on GitHub builds the zip for you. `.github/workflows/release.yml`:
+
+1. checks that the release tag (`0.0.1` or `v0.0.1`) matches the `Version:` in `style.css`, and stops if it doesn't;
+2. installs the dependencies and checks the Node tools for known high or critical vulnerabilities;
+3. builds the translation template (`npm run pot`), so the zip has one that matches the release's text;
+4. builds and exports the theme (`npm run build`);
+5. zips `dist/momentum/` as `momentum.{version}.zip` and attaches it to the release.
+
+The names follow the text domain, so after `composer rename` the zip is `{your-theme}.{version}.zip`. To release, update `Version:` in `style.css` and the changelog, merge, then publish a release with the same version as its tag.
+
 ## Chassis
 
 Momentum is built on [Chassis](https://github.com/techkodeninja/chassis), the shared structure and UI building blocks used by both ClassicPress themes and Novaris sites. `app/framework.php` registers its service provider, which loads Chassis's CSS, its ClassicPress add-on, the menu script and the theme's `chassis.json`.
@@ -115,9 +127,9 @@ Momentum is a starting point, so some things are switched on but left for you to
 | Your theme's name, author and URIs | `themerename.json` | Momentum's own. Fill in `to` and run `composer rename` (see [Renaming](#renaming)). `style.css` stays at version `0.0.1` for your first release. |
 | Design | `chassis.json` | Every group is there but empty, so Chassis's defaults show. Add a palette in `settings.palette`, then fill in the parts in `styles`. |
 | Your own styles and scripts | `resources/scss/screen.scss`, `resources/js/app.js` | Empty. Each loads once it has something in it. |
-| Header image | `app/CustomHeader/`, `public/images/headers/` | Header image support is on, with three sample images, but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |
+| Header image | `app/CustomHeader/`, `config/_settings-headers.php` | Header image support is on, with no sample images (add your own to `public/images/headers/` and list them in the config), but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |
 | Meta icons | `public/svg/meta-icons/` | Calendar, comment and user icons, not used yet. For post metadata, if you want icons. |
-| Layout picker images | `public/images/layouts/` | Used by Customize → Layout. `header-image.jpg` isn't used. |
+| Layout picker images | `public/images/layouts/` | Used by Customize → Layout. |
 | Menus | `config/_settings-menus.php` | Primary and Social. |
 | Widget areas | `config/_settings-sidebars.php` | Primary and Footer. |
 | Theme settings page | `app/Settings/` | Appearance → Momentum, with recommended plugins from `config/plugins.json`. |
@@ -125,7 +137,7 @@ Momentum is a starting point, so some things are switched on but left for you to
 
 ## Checks
 
-Each push and pull request runs `.github/workflows/build.yml`. It checks every PHP file for syntax errors on PHP 7.4 and 8.3, then installs the dependencies and runs `npm run build`, so a theme copied from Momentum always builds. `cpcs.yml` checks the ClassicPress coding standards on pushes to `develop`.
+Each push and pull request runs `.github/workflows/build.yml`. Publishing a release runs `release.yml` (see [Releasing](#releasing)). It checks every PHP file for syntax errors on PHP 7.4 and 8.3, then installs the dependencies and runs `npm run build`, so a theme copied from Momentum always builds. `cpcs.yml` checks the ClassicPress coding standards on pushes to `develop`.
 
 ## Copyright and License
 

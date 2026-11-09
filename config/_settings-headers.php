@@ -2,8 +2,8 @@
 /**
  * Custom Header Settings.
  *
- * This configuration file defines custom headers for the Momentum theme.
- * Each header includes a name and a URL to its corresponding image.
+ * The header images offered in Customize → Header Image. Each has a name and a
+ * URL. Empty by default.
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
@@ -12,17 +12,12 @@
  * @link      https://luthemes.com/portfolio/momentum
  */
 
-return [
-    'default-header' => [
-        'name' => 'Default Header',
-        'url'  => get_template_directory_uri() . '/public/images/headers/andromeda-galaxy.png'
-    ],
-    'alternative-header' => [
-        'name' => 'Alternative Header',
-        'url'  => get_template_directory_uri() . '/public/images/headers/macbook-pro.png'
-    ],
-    'dark-header' => [
-        'name' => 'Dark Header',
-        'url'  => get_template_directory_uri() . '/public/images/headers/sombrero-galaxy.png'
-    ]
-];
+// No header images ship with the theme, so a site picks or uploads its own in
+// Customize → Header Image. To offer some, put them in `public/images/headers/`
+// and list them here:
+//
+// 'default-header' => [
+//     'name' => 'Default Header',
+//     'url'  => get_template_directory_uri() . '/public/images/headers/default.jpg',
+// ],
+return [];

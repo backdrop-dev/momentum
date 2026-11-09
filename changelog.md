@@ -1,5 +1,16 @@
 # Changelog
 
+## [Unreleased]
+### Added
+- `.github/workflows/release.yml`: publishing a GitHub release builds the theme, with a fresh translation template, and attaches `{text-domain}.{version}.zip` to the release. The readme has a Releasing section.
+
+### Fixed
+- The Layout picker in Customize → Theme: Content → Layout selects a layout when an image is clicked or chosen with the arrow keys. `customize-controls.js` was empty, so the picker relied only on the customizer linking its hidden radios, which didn't always work. It now sets the layout itself and follows the setting when it changes elsewhere.
+- The Layout picker's images show at their own size (45×36) instead of doubled to 90 pixels wide.
+
+### Removed
+- 6 MB of images that shipped in every export but weren't shown: `public/images/layouts/header-image.jpg` (4.4 MB, unused) and the three sample header images in `public/images/headers/` (1.6 MB). Header image support stays, with no default image; a site uploads its own, or a theme lists its own in `config/_settings-headers.php`.
+
 ## [0.0.8] - 11.07.2026
 ### Fixed
 - Requires Backdrop 1.0.1 or later (`backdrop-dev/framework` `^1.0.1`). With Backdrop 1.0.0, a site that also runs a plugin built on Backdrop 2.0 crashed with "Cannot redeclare Backdrop\booted()" on every page.
