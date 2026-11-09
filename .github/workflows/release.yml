@@ -1,0 +1,85 @@
+name: Release
+
+# When a release is published on GitHub, builds the theme and attaches the zip to
+# the release. The tag (with or without a leading "v") must match the `Version:`
+# in style.css, and the zip is named "{text-domain}.{version}.zip", for example
+# momentum.0.0.1.zip, with a `momentum/` folder inside.
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Resolve version
+        id: version
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          VERSION="${TAG#v}"
+          THEME_VERSION=$( sed -n 's/^[ *]*Version:[[:space:]]*\([^[:space:]]*\).*/\1/p' style.css | head -n 1 )
+          SLUG=$( sed -n 's/^[ *]*Text Domain:[[:space:]]*\([^[:space:]]*\).*/\1/p' style.css | head -n 1 )
+
+          if [ "$VERSION" != "$THEME_VERSION" ]; then
+            echo "::error::Release tag ($TAG) does not match the style.css version ($THEME_VERSION)."
+            exit 1
+          fi
+
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "zip=$SLUG.$VERSION.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      # Without the dev tools: the export refuses a vendor folder that has them.
+      - name: Install Composer dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+
+      # Install exactly what package-lock.json pins.
+      - name: Install Node dependencies
+        run: npm ci --no-fund
+
+      # Don't publish a release built with build tools that have a known high or
+      # critical vulnerability.
+      - name: Audit Node dependencies
+        run: npm audit --audit-level=high
+
+      # The translation template, from this release's text, so the zip always has a
+      # current one. It reads the Backdrop framework from vendor/.
+      - name: Build the translation template
+        run: |
+          npm run pot
+          test -s "public/lang/${{ steps.version.outputs.slug }}.pot"
+
+      # Builds the assets with Vite, then exports the theme into dist/{text-domain}/.
+      - name: Build
+        run: npm run build
+
+      - name: Create ZIP
+        working-directory: dist
+        run: zip -rq "../${{ steps.version.outputs.zip }}" "${{ steps.version.outputs.slug }}"
+
+      - name: Upload ZIP to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            "${{ steps.version.outputs.zip }}" \
+            --clobber
