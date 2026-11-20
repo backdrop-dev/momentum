@@ -7,7 +7,7 @@ if ( post_password_required() ) {
 <?php if ( have_comments() || comments_open() ) { ?>
 	<section id="comments" class="comments-area">
 		<?php if ( have_comments() ) { ?>
-			<h2 class="comments-title">
+			<h2 class="comments-area__title">
 				<?php $count = get_comments_number(); ?>
 				<?php
 				if ( '1' === $count ) {
@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 				?>
 			</h2>
 		<?php } ?>
-		<ol class="comment-list">
+		<ol class="comments-area__list">
 			<?php
 			wp_list_comments( [
 				'avatar_size' => 60,
@@ -30,9 +30,9 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
-			<nav id="comment-nav-below" class="comment-navigation" role="navigation">
-				<div class="comment-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'momentum' ) ); ?></div>
-				<div class="comment-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'momentum' ) ); ?></div>
+			<nav id="comment-nav-below" class="comments-area__navigation" role="navigation">
+				<div class="comments-area__previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'momentum' ) ); ?></div>
+				<div class="comments-area__next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'momentum' ) ); ?></div>
 			</nav>
 		<?php } ?>
 		<?php if ( ! comments_open() ) : ?>

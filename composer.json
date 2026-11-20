@@ -24,7 +24,7 @@
         "php": ">=7.4",
         "backdrop-dev/framework": "^1.0.1",
         "backdrop-dev/fonts": "^1.0.2",
-        "techkodeninja/chassis": "^0.1.7"
+        "techkodeninja/chassis": "^0.2.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
