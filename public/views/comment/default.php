@@ -1,4 +1,4 @@
-<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'comments', $data->comment ); ?>>
+<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'comment--callback', $data->comment ); ?>>
 
 	<header class="comment-meta">
 		<?php Backdrop\Comment\display_parent_link( [
@@ -10,7 +10,7 @@
 		] ) ?>
 
 		<?php echo get_avatar( $data->comment, $data->args['avatar_size'], '', '', [
-			'class' => 'comment-avatar'
+			'class' => 'comment__avatar'
 		] ) ?>
 
 		<?php Backdrop\Comment\display_author_link( [
