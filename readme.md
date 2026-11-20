@@ -129,6 +129,7 @@ Momentum is a starting point, so some things are switched on but left for you to
 | Your own styles and scripts | `resources/scss/screen.scss`, `resources/js/app.js` | Empty. Each loads once it has something in it. |
 | Header image | `app/CustomHeader/`, `config/_settings-headers.php` | Header image support is on, with no sample images (add your own to `public/images/headers/` and list them in the config), but no template prints it. Add it to `public/views/header/default.php`, or remove the component. "Display site title and tagline" isn't wired up either. |
 | Meta icons | `public/svg/meta-icons/` | Calendar, comment and user icons, not used yet. For post metadata, if you want icons. |
+| Custom logo | `app/functions-setup.php` | Not included on purpose. If your theme needs one, add `add_theme_support( 'custom-logo' )` and print it with `get_custom_logo()` in the header branding. |
 | Layout picker images | `public/images/layouts/` | Used by Customize → Layout. |
 | Menus | `config/_settings-menus.php` | Primary and Social. |
 | Widget areas | `config/_settings-sidebars.php` | Primary and Footer. |

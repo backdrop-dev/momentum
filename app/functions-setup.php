@@ -24,8 +24,9 @@ use function Backdrop\is_classicpress;
  */
 add_action( 'after_setup_theme', function() {
 
-	// Sets the theme content width.
-	$GLOBALS['content_width'] = 640;
+	// Sets the theme content width. Chassis's default layout is 80rem wide
+	// with an 18rem sidebar, so the content column is about 960px.
+	$GLOBALS['content_width'] = 960;
 
 	// Automatically add the `<title>` tag.
 	add_theme_support( 'title-tag' );

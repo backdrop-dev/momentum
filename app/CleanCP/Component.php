@@ -2,7 +2,7 @@
 /**
  * Clean ClassicPress component.
  *
- * Handles cleaning up some ascpects of ClassicPress that are not needed on the front end.
+ * Handles cleaning up some aspects of ClassicPress that are not needed on the front end.
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
@@ -17,7 +17,7 @@ use Backdrop\Contracts\Bootable;
 use Momentum\Settings\Options;
 
 /**
- * Clean WP component class.
+ * CleanCP component class.
  *
  * @since  0.0.1
  * @access public

@@ -33,6 +33,8 @@ function resolve_vite_asset( ?array $manifest, string $path, string $baseUrl ): 
 	} elseif( is_array( $manifest ) ) {
 		$file = null;
 		foreach ( $manifest as $entry ) {
+			// str_ends_with() is PHP 8+; ClassicPress polyfills it
+			// (wp-includes/compat.php), so this is safe on PHP 7.4.
 			if ( ! empty( $entry['file'] ) && str_ends_with( $entry['file'], $base ) ) {
 				$file = $entry['file'];
 				break;

@@ -46,7 +46,7 @@ class Mod {
 	/**
 	 * Returns a default theme mod.
 	 *
-	 * @since  2.0.0
+	 * @since  0.0.1
 	 * @access public
 	 * @param  string  $name
 	 * @return mixed

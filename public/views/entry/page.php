@@ -4,7 +4,7 @@
 	</header>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="entry__thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
+			<?php the_post_thumbnail( Momentum\Tools\Mod::get( 'theme_content_feature_image', Momentum\Tools\Mod::fallback( 'featured_image_size' ) ) ); ?>
 		</figure>
 	<?php endif; ?>
 	<div class="entry__content">

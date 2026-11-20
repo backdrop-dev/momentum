@@ -18,7 +18,7 @@ use Backdrop\Core\ServiceProvider;
 /**
  * Vite service provider.
  *
- * @since  1.0.0
+ * @since  0.0.1
  * @access public
  */
 class Provider extends ServiceProvider {
@@ -27,7 +27,7 @@ class Provider extends ServiceProvider {
 	 * Callback executed when the `Backdrop\Core\Application` class registers
 	 * providers. Use this method to bind items to the container.
 	 *
-	 * @since  1.0.0
+	 * @since  0.0.1
 	 * @access public
 	 * @return void
 	 */

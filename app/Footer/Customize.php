@@ -107,7 +107,7 @@ class Customize extends Customizable {
 
 		// Footer credit partial.
 		$manager->selective_refresh->add_partial( 'theme_footer_powered_by', [
-			'selector'            => '.site-footer__credit',
+			'selector'            => '.app-footer__credit',
 			'container_inclusive' => true,
 			'settings'            => [ 'theme_footer_powered_by', 'theme_footer_custom_credit' ],
 			'render_callback'     => function() {

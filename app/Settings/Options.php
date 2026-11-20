@@ -51,7 +51,7 @@ class Options {
 	public static function defaults() {
 
 		return apply_filters( 'momentum/settings/options/defaults', [
-			// 1.0.0
+			// 0.0.1
 			'disable_emoji'        => true,
 			'disable_toolbar'      => false,
 			'disable_wp_embed'     => false,

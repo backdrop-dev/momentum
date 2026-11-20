@@ -54,7 +54,7 @@ add_action( 'wp_enqueue_scripts', function() {
  * Whether a built file in the theme has anything in it. Momentum's own stylesheet and script
  * start empty, since Chassis does the work, and load once something is added to them.
  *
- * @since  1.0.0
+ * @since  0.0.1
  * @access public
  * @param  string $url The file's URL, from `Momentum\Vite\asset()`.
  * @return bool

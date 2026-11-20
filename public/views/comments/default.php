@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 					printf( esc_html_x( 'One Comment', 'comments title', 'momentum' ) );
 				} else {
 					// Translators: 1 = counts.
-					printf( _nx( '%1$s Comment', '%1$s Comments', absint( $count ), 'comments title', 'momentum' ), absint( number_format_i18n( $count ) ) ); // phpcs:ignore
+					printf( _nx( '%1$s Comment', '%1$s Comments', absint( $count ), 'comments title', 'momentum' ), number_format_i18n( $count ) ); // phpcs:ignore
 				}
 				?>
 			</h2>

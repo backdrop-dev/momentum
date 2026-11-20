@@ -3,19 +3,34 @@
 ## [Unreleased]
 ### Added
 - `.github/workflows/release.yml`: publishing a GitHub release builds the theme, with a fresh translation template, and attaches `{text-domain}.{version}.zip` to the release. The readme has a Releasing section.
+- `public/lang/momentum.pot` is committed in the repo, generated with `npm run pot`, so a developer cloning the starter has the translation template without building first.
 
 ### Changed
 - Requires Backdrop Fonts 1.0.2 (`backdrop-dev/fonts` `^1.0.2`), its first tagged release with all fifteen fonts, instead of a pinned `develop` commit. It ships each font's license, loads fonts from wherever the package is installed, versions its stylesheets, and serves `enqueue( 'all' )` from one file instead of 16. Requires PHP 7.4, as Momentum already does.
 - `readme.txt` is a fill-in template with every section, and a Copyright section that credits what Momentum bundles: Chassis, Backdrop, the fifteen fonts with their licenses (OFL 1.1, except Mountains of Christmas under Apache 2.0 and Ubuntu under the Ubuntu Font Licence 1.0), and the Font Awesome icons (CC BY 4.0, which requires attribution).
+- Requires Chassis 0.2.0 or later (`techkodeninja/chassis` `^0.2.0`), so the starter uses Chassis 0.2.1. The templates use the BEM class names Chassis 0.2.0 renamed (`.comments-area__title`, `.comments-area__list`, `.comment--callback`, `.comment__avatar`, `.widget__title`, comment pagination), and the social menu uses `.social-menu`.
+- `themerename.json` ships with empty `to` Name, Slug and Namespace, so `composer rename` refuses to run until the developer fills in their theme's details (it used to ship with test values and would rename the theme to "Test").
+- No fonts are enqueued by default. Chassis uses a system font stack and the starter sets no font, so `enqueue( 'all' )` downloaded a stylesheet nobody used. Enqueue a font in `app/functions-extras.php` once the theme sets one in `chassis.json`.
+- `$content_width` is 960, matching Chassis's default layout (80rem wide with an 18rem sidebar), instead of 640.
+- The readme's Starting-points table notes that a custom logo is intentionally left out, with how to add it.
+- `str_ends_with()` in the Vite asset helper notes that it relies on ClassicPress's polyfill (`wp-includes/compat.php`) on PHP 7.4.
 
 ### Fixed
 - `style.css` tags match what Momentum has: `blog`, `one-column`, `two-columns`, `left-sidebar`, `right-sidebar`, `custom-menu`, `featured-images`, `footer-widgets`, `threaded-comments`, `translation-ready`. Removed tags for features it doesn't have (`light`, `custom-colors`, `custom-logo`, `wide-blocks`, `full-width-template`, `grid-layout`), `custom-header` (supported but no template shows it), `accessibility-ready` (needs a review first), and tags that aren't in the directory's list (`clean`, `minimal`, `modern`, `responsive`). Every theme made from Momentum starts with these.
 - `composer rename` replaces the theme's description. `themerename.json` looked for a different description from the one in `style.css`, `composer.json` and `package.json`, so a renamed theme kept Momentum's.
 - The Layout picker in Customize → Theme: Content → Layout selects a layout when an image is clicked or chosen with the arrow keys. `customize-controls.js` was empty, so the picker relied only on the customizer linking its hidden radios, which didn't always work. It now sets the layout itself and follows the setting when it changes elsewhere.
 - The Layout picker's images show at their own size (45×36) instead of doubled to 90 pixels wide.
+- The footer credit in the Customizer preview updates when the credit settings change. The selective-refresh partial targeted `.site-footer__credit`, but the credit renders as `.app-footer__credit`, so it never matched.
+- Sidebar names and descriptions are translatable (`__( …, 'momentum' )`), matching the menu locations.
+- The comment count shows the full number ("1,234 Comments") instead of "1 Comments" for 1,000+ comments. The formatted number was passed through `absint()`, which stopped at the thousands comma.
+- The page template uses the Customizer's featured-image size (`theme_content_feature_image`), like single posts and archive listings, instead of hardcoding WordPress's `large`.
+- `@since` markers and version comments say `0.0.1`, the theme's version, instead of `1.0.0` / `2.0.0`.
+- A stale reference to `config/character-entities.php`, which does not exist, is removed.
+- Doc typos: the `@link` in `app/functions-template.php` (`portfolio/momentums`), "ascpects" and "Clean WP component class" in `app/CleanCP/Component.php`.
 
 ### Removed
 - 6 MB of images that shipped in every export but weren't shown: `public/images/layouts/header-image.jpg` (4.4 MB, unused) and the three sample header images in `public/images/headers/` (1.6 MB). Header image support stays, with no default image; a site uploads its own, or a theme lists its own in `config/_settings-headers.php`.
+- The `branding_sep` theme mod, which was defined but never read anywhere.
 
 ## [0.0.8] - 11.07.2026
 ### Fixed
