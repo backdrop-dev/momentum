@@ -14,7 +14,6 @@
 - `$content_width` is 960, matching Chassis's default layout (80rem wide with an 18rem sidebar), instead of 640.
 - The readme's Starting-points table notes that a custom logo is intentionally left out, with how to add it.
 - `str_ends_with()` in the Vite asset helper notes that it relies on ClassicPress's polyfill (`wp-includes/compat.php`) on PHP 7.4.
-- Copyright year is 2026 in file headers, `themerename.json`, `readme.md` and `readme.txt`.
 
 ### Fixed
 - `style.css` tags match what Momentum has: `blog`, `one-column`, `two-columns`, `left-sidebar`, `right-sidebar`, `custom-menu`, `featured-images`, `footer-widgets`, `threaded-comments`, `translation-ready`. Removed tags for features it doesn't have (`light`, `custom-colors`, `custom-logo`, `wide-blocks`, `full-width-template`, `grid-layout`), `custom-header` (supported but no template shows it), `accessibility-ready` (needs a review first), and tags that aren't in the directory's list (`clean`, `minimal`, `modern`, `responsive`). Every theme made from Momentum starts with these.

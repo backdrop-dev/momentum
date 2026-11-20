@@ -144,4 +144,4 @@ Each push and pull request runs `.github/workflows/build.yml`. Publishing a rele
 
 Momentum is licensed under the [GNU GPL](https://www.gnu.org/licenses/gpl-2.0.html), version 2 or later.
 
-2026 &copy; Benjamin Lu.
+2025 &copy; Benjamin Lu.
