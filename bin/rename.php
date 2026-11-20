@@ -24,7 +24,7 @@
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
- * @copyright 2025 Benjamin Lu
+ * @copyright 2026 Benjamin Lu
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */
 
@@ -99,7 +99,7 @@ $replacements['Slug']          = [ '/(?<![A-Za-z0-9])' . $slug . '(?![a-z0-9])/'
 if ( isset( $from['Year'], $to['Year'] ) && $from['Year'] !== $to['Year'] ) {
 	$year = preg_quote( (string) $from['Year'], '/' );
 
-	// "© 2025", "Copyright 2025", "@copyright 2025", and "2025 ©".
+	// "© 2026", "Copyright 2026", "@copyright 2026", and "2026 ©".
 	$replacements['Year']       = [ '/((?:@copyright|Copyright|&copy;|©)\s+)' . $year . '\b/i', '${1}' . $to['Year'] ];
 	$replacements['Year before'] = [ '/\b' . $year . '(\s*(?:&copy;|©))/', $to['Year'] . '${1}' ];
 }

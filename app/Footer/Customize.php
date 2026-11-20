@@ -6,7 +6,7 @@
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
- * @copyright 2025 Benjamin Lu
+ * @copyright 2026 Benjamin Lu
  * @license   https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://luthemes.com/portfolio/momentum
  */
@@ -107,7 +107,7 @@ class Customize extends Customizable {
 
 		// Footer credit partial.
 		$manager->selective_refresh->add_partial( 'theme_footer_powered_by', [
-			'selector'            => '.site-footer__credit',
+			'selector'            => '.app-footer__credit',
 			'container_inclusive' => true,
 			'settings'            => [ 'theme_footer_powered_by', 'theme_footer_custom_credit' ],
 			'render_callback'     => function() {

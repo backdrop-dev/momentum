@@ -8,7 +8,7 @@
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
- * @copyright 2025 Benjamin Lu
+ * @copyright 2026 Benjamin Lu
  * @license   https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://luthemes.com/portfolio/momentum
  */
@@ -16,7 +16,7 @@
 /**
  * Returns the message shown when the framework is missing.
  *
- * @since  1.0.0
+ * @since  0.0.1
  * @access public
  * @return string
  */

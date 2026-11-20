@@ -6,7 +6,7 @@
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
- * @copyright 2025 Benjamin Lu
+ * @copyright 2026 Benjamin Lu
  * @license   https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://luthemes.com/portfolio/momentum
  */
@@ -51,7 +51,7 @@ class Options {
 	public static function defaults() {
 
 		return apply_filters( 'momentum/settings/options/defaults', [
-			// 1.0.0
+			// 0.0.1
 			'disable_emoji'        => true,
 			'disable_toolbar'      => false,
 			'disable_wp_embed'     => false,

@@ -11,7 +11,7 @@
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
- * @copyright 2025 Benjamin Lu
+ * @copyright 2026 Benjamin Lu
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  * @link      https://luthemes.com/portfolio/momentum
  */
@@ -25,9 +25,6 @@ return [
 	# ----------------------------------------------------------------------
 	#
 	# Handles the global theme mods.
-
-	// Branding separator (see `config/character-entities.php` for options).
-	'branding_sep' => '&#183;',
 
 	# ----------------------------------------------------------------------
 	# Theme: Header

@@ -31,7 +31,7 @@ In `chassis.json` in the theme's folder. To keep your changes through updates, m
 
 == Copyright ==
 
-Momentum, Copyright 2025 Benjamin Lu.
+Momentum, Copyright 2026 Benjamin Lu.
 Momentum is distributed under the terms of the GNU GPL, version 2 or later.
 
 This theme bundles the following third-party resources:
@@ -58,7 +58,7 @@ Font Awesome Free icons (social and meta icons), Copyright Fonticons, Inc.
 License: CC BY 4.0
 Source: https://fontawesome.com
 
-Layout images, Copyright 2025 Benjamin Lu
+Layout images, Copyright 2026 Benjamin Lu
 License: GPL-2.0-or-later
 
 == Changelog ==
