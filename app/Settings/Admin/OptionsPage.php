@@ -61,7 +61,7 @@ class OptionsPage implements Bootable {
 	protected $capability = 'edit_theme_options';
 
 	/**
-	 * The settings page defined by WordPress.
+	 * The settings page defined by ClassicPress.
 	 *
 	 * @since  0.0.1
 	 * @access protected
@@ -104,7 +104,7 @@ class OptionsPage implements Bootable {
 	}
 
 	/**
-	 * Adds the settings page to WordPress.
+	 * Adds the settings page to ClassicPress.
 	 *
 	 * @since  0.0.1
 	 * @access public

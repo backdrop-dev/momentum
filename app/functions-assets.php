@@ -18,9 +18,6 @@ use function Momentum\Vite\asset;
  * @since  0.0.1
  * @access public
  * @return void
- *
- * @link   https://developer.wordpress.org/reference/functions/wp_enqueue_style/
- * @link   https://developer.wordpress.org/reference/functions/wp_enqueue_script/
  */
 add_action( 'wp_enqueue_scripts', function() {
 
