@@ -40,4 +40,4 @@
 		<?php comment_text( $data->comment ) ?>
 	</div>
 
-<?php /* No closing </li> is needed.  WordPress will know where to add it. */ ?>
+<?php /* No closing </li> is needed.  ClassicPress will know where to add it. */ ?>

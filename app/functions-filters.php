@@ -2,7 +2,7 @@
 /**
  * Theme filters and actions.
  *
- * Adds and defines custom filters and actions the theme adds to core WordPress.
+ * Adds and defines custom filters and actions the theme adds to core ClassicPress.
  *
  * @package   Momentum
  * @author    Benjamin Lu <benlumia007@gmail.com>
