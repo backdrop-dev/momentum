@@ -72,7 +72,7 @@ class Component implements Bootable {
 	}
 
 	/**
-	 * Runs the register action and adds image sizes to WordPress.
+	 * Runs the register action and adds image sizes to ClassicPress.
 	 *
 	 * @since  0.0.1
 	 * @access public
@@ -83,7 +83,7 @@ class Component implements Bootable {
 		// Hook for registering custom image sizes.
 		do_action( 'momentum/image/size/register', $this->sizes );
 
-		// Registers image sizes with WordPress.  Note that the
+		// Registers image sizes with ClassicPress.  Note that the
 		// `post-thumbnail` size should be properly register with the
 		// `set_post_thumbnail_size()` function.
 		foreach ( $this->sizes->all() as $size ) {
