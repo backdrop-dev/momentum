@@ -16,7 +16,7 @@ namespace Momentum;
 use Momentum\Template\ErrorPage;
 
 /**
- * Filters the excerpt more link.
+ * Filters the excerpt more link, for excerpts that ClassicPress trims itself.
  *
  * @since  0.0.1
  * @access public
@@ -24,16 +24,29 @@ use Momentum\Template\ErrorPage;
  */
 add_filter( 'excerpt_more', function() {
 
-	return sprintf(
-		'&thinsp;&hellip;&thinsp;<a href="%s" class="entry-more-link">%s</a>',
-		esc_url( get_permalink() ),
-		sprintf(
-			// Translators: %s is the post title for screen readers.
-			esc_html__( 'Continue reading&nbsp;%s&nbsp;&rarr;', 'momentum' ),
-			the_title( '<span class="screen-reader-text">', '</span>', false )
-		)
-	);
+	return '&thinsp;&hellip;&thinsp;' . excerpt_more_link();
 } );
+
+/**
+ * Adds the "Continue reading" link to excerpts written by hand.
+ *
+ * ClassicPress only runs `excerpt_more` on excerpts it trims itself, so a hand-written
+ * excerpt would end wherever its author stopped, with no link to the full post.
+ *
+ * @since  0.0.1
+ * @access public
+ * @param  string   $excerpt The excerpt.
+ * @param  \WP_Post $post    The post.
+ * @return string
+ */
+add_filter( 'get_the_excerpt', function( $excerpt, $post = null ) {
+
+	if ( is_admin() || is_feed() || ! $post || ! has_excerpt( $post ) || false !== strpos( $excerpt, 'entry__more-link' ) ) {
+		return $excerpt;
+	}
+
+	return $excerpt . ' ' . excerpt_more_link( $post );
+}, 20, 2 );
 
 /**
  * Adds error data for the 404 content template. Passes in the `ErrorPage` object

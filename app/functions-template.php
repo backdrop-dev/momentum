@@ -34,6 +34,28 @@ function sep( $sep = '' ) {
 }
 
 /**
+ * Returns the "Continue reading" link for an excerpt. Its class is Chassis's
+ * `.entry__more-link`, so Chassis styles it.
+ *
+ * @since  0.0.1
+ * @access public
+ * @param  int|\WP_Post|null $post The post. Defaults to the current post.
+ * @return string
+ */
+function excerpt_more_link( $post = null ) {
+
+	return sprintf(
+		'<a href="%s" class="entry__more-link">%s</a>',
+		esc_url( get_permalink( $post ) ),
+		sprintf(
+			// Translators: %s is the post title for screen readers.
+			esc_html__( 'Continue reading&nbsp;%s&nbsp;&rarr;', 'momentum' ),
+			'<span class="screen-reader-text">' . esc_html( get_the_title( $post ) ) . '</span>'
+		)
+	);
+}
+
+/**
  * Returns the global layout from Customize -> Theme: Content -> Layout:
  * `left-sidebar`, `right-sidebar` or `no-sidebar`.
  *
