@@ -1,9 +1,10 @@
 name: Release
 
 # When a release is published on GitHub, builds the theme and attaches the zip to
-# the release. The tag (with or without a leading "v") must match the `Version:`
-# in style.css, and the zip is named "{text-domain}.{version}.zip", for example
-# momentum.0.0.1.zip, with a `momentum/` folder inside.
+# the release. The version comes from the tag (a leading "v" is dropped), and the zip is
+# named "{text-domain}.{version}.zip", for example momentum.0.1.0.zip, with a
+# `momentum/` folder inside. The `Version:` in style.css is not used: Momentum is a
+# starter theme, so it stays at 0.0.1 and the tags carry the version.
 
 on:
   release:
@@ -25,11 +26,10 @@ jobs:
         run: |
           TAG="${{ github.event.release.tag_name }}"
           VERSION="${TAG#v}"
-          THEME_VERSION=$( sed -n 's/^[ *]*Version:[[:space:]]*\([^[:space:]]*\).*/\1/p' style.css | head -n 1 )
           SLUG=$( sed -n 's/^[ *]*Text Domain:[[:space:]]*\([^[:space:]]*\).*/\1/p' style.css | head -n 1 )
 
-          if [ "$VERSION" != "$THEME_VERSION" ]; then
-            echo "::error::Release tag ($TAG) does not match the style.css version ($THEME_VERSION)."
+          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::Release tag ($TAG) is not a version like 0.1.0 or v0.1.0."
             exit 1
           fi
 
