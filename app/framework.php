@@ -56,7 +56,6 @@ $theme->provider( Momentum\Provider::class );
 $theme->provider( Momentum\CleanCP\Provider::class );
 $theme->provider( Momentum\CustomHeader\Provider::class );
 $theme->provider( Momentum\Customize\Provider::class );
-$theme->provider( Momentum\Footer\Provider::class );
 $theme->provider( Momentum\Image\Provider::class );
 $theme->provider( Momentum\Layout\Provider::class );
 $theme->provider( Momentum\Menu\Provider::class );

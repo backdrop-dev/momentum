@@ -13,12 +13,7 @@
 
 namespace Momentum\Customize;
 
-use Backdrop\Tools\Collection;
 use Backdrop\Core\ServiceProvider;
-
-use Momentum\Footer;
-use Momentum\Image;
-use Momentum\Layout;
 
 /**
  * Customize service provider.
@@ -38,11 +33,7 @@ class Provider extends ServiceProvider {
 	public function register(): void {
 
 		$this->app->singleton( Component::class, function() {
-			return new Component( [
-				Footer\Customize::class,
-				Image\Customize::class,
-				Layout\Customize::class
-			] );
+			return new Component();
 		} );
 	}
 
@@ -54,6 +45,9 @@ class Provider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot(): void {
+		// The filters must be in place before the customizer registers its components.
+		( new Defaults() )->boot();
+
 		$this->app->resolve( Component::class )->boot();
 	}
 }
