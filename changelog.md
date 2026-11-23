@@ -1,8 +1,13 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.1.1] - 11.23.2026
 ### Changed
 - The readme's Releasing section says the release version comes from the tag, not from `Version:` in `style.css`, which stays at `0.0.1` in the starter. This goes with the change to `.github/workflows/release.yml` (applied by hand, since the GitHub app can't edit workflows).
+
+### Fixed
+- `.github/workflows/release.yml` takes the release version from the tag instead of requiring it to match `Version:` in `style.css`, so publishing a release works while the starter stays at `0.0.1`. Release 0.1.0 failed on that check and has no zip; this release builds it.
 
 ## [0.1.0] - 11.23.2026
 ### Fixed
