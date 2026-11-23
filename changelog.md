@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- `.github/workflows/release.yml` no longer builds or attaches a zip: Momentum is a starter theme, installed with `composer create-project`, so publishing a release only verifies the tagged release builds (fresh translation template, Vite build, export).
+
 ## [0.1.1] - 11.23.2026
 ### Changed
 - The readme's Releasing section says the release version comes from the tag, not from `Version:` in `style.css`, which stays at `0.0.1` in the starter. This goes with the change to `.github/workflows/release.yml` (applied by hand, since the GitHub app can't edit workflows).
