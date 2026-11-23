@@ -37,11 +37,6 @@ class Provider extends ServiceProvider {
 			return new App\Component( $this->app->resolve( 'layouts/global' ) );
 		} );
 
-		$this->app->singleton( Customize::class, function() {
-			return new Customize( [
-				'app_layouts'  => $this->app->resolve( 'layouts/global' ),
-			] );
-		} );
 	}
 
 	/**
