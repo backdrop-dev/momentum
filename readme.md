@@ -61,6 +61,7 @@ What comes from where:
 * **`chassis.json`:** the design, in Chassis's `settings` and `styles` shape. `settings` holds the `palette`, `font`s and `layout` widths; `styles` applies them to the site, to `elements` (links, headings, buttons) and to each part of the page: `header`, `primary-menu`, `menu-button`, `content`, `post`, `widget`, `comments`, `footer`. Name colors once in the palette and use them as `@name`, for example `"post": { "color": { "background": "@slate" } }`. Every group starts empty, so Momentum uses Chassis's defaults; fill in only what you change, then refresh. There's nothing to build. See [`settings` and `styles`](https://github.com/techkodeninja/chassis#settings-and-styles).
 * **`resources/scss/`:** Momentum's own styles, for anything Chassis doesn't cover. `screen.scss` is empty, since Momentum is a starter theme. Load Chassis's tools in a partial with `@use 'techkodeninja/chassis/scss/02.tools' as ui;` to use its breakpoints (`ui.up( medium )`) and values (`ui.space( m )`, `ui.color( content-muted )`).
 * **Customize → Theme: Content → Layout:** left sidebar, right sidebar or no sidebar, which sets Chassis's `app-content--sidebar-left` or `--sidebar-right`.
+* **Customize → Theme: Global → Colors** and **Theme: Content → Typography:** change Chassis's colors, fonts, base size and line height without editing `chassis.json`. The controls start at the design's current values and a change overrides the file; Typography loads a font only when you pick it.
 
 ## Renaming
 
