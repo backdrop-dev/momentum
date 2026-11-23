@@ -16,6 +16,8 @@
 - `str_ends_with()` in the Vite asset helper notes that it relies on ClassicPress's polyfill (`wp-includes/compat.php`) on PHP 7.4.
 
 ### Fixed
+- The comment navigation is labelled (`aria-label="Comments"`) instead of carrying a redundant `role="navigation"`, so screen readers can tell it from the other navigation landmarks.
+- `bin/export-theme.cjs` no longer says Backdrop is pinned to `develop` commits; it requires a tagged release now.
 - The "Continue reading" link uses Chassis's `.entry__more-link` class instead of an unstyled `.entry-more-link`, and hand-written excerpts get the link too. ClassicPress only runs `excerpt_more` on excerpts it trims itself, so an archive excerpt written by hand used to end with no link to the post.
 - Code comments say ClassicPress where they said WordPress, and the two `developer.wordpress.org` links are gone. The only remaining mentions are the non-ClassicPress branches (`Clean WordPress`, `Disable WordPress Embeds`, the footer's `render_wp_link()`) that Backdrop's own support for other platforms needs, and PHPCS rule names.
 - `style.css` tags match what Momentum has: `blog`, `one-column`, `two-columns`, `left-sidebar`, `right-sidebar`, `custom-menu`, `featured-images`, `footer-widgets`, `threaded-comments`, `translation-ready`. Removed tags for features it doesn't have (`light`, `custom-colors`, `custom-logo`, `wide-blocks`, `full-width-template`, `grid-layout`), `custom-header` (supported but no template shows it), `accessibility-ready` (needs a review first), and tags that aren't in the directory's list (`clean`, `minimal`, `modern`, `responsive`). Every theme made from Momentum starts with these.
