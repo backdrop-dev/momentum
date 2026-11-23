@@ -45,13 +45,13 @@ The export stops if the assets aren't built, or if `vendor` still has the dev to
 
 Publishing a release on GitHub builds the zip for you. `.github/workflows/release.yml`:
 
-1. checks that the release tag (`0.0.1` or `v0.0.1`) matches the `Version:` in `style.css`, and stops if it doesn't;
+1. takes the version from the release tag (`0.1.0` or `v0.1.0`), and stops if the tag isn't a version like that;
 2. installs the dependencies and checks the Node tools for known high or critical vulnerabilities;
 3. builds the translation template (`npm run pot`), so the zip has one that matches the release's text;
 4. builds and exports the theme (`npm run build`);
 5. zips `dist/momentum/` as `momentum.{version}.zip` and attaches it to the release.
 
-The names follow the text domain, so after `composer rename` the zip is `{your-theme}.{version}.zip`. To release, update `Version:` in `style.css` and the changelog, merge, then publish a release with the same version as its tag.
+The names follow the text domain, so after `composer rename` the zip is `{your-theme}.{version}.zip`. To release, update the changelog, merge, then publish a release whose tag is the new version. `Version:` in `style.css` is not used: Momentum is a starter theme, so it stays at `0.0.1` and the tags carry the version. A theme made from Momentum can set its own `Version:` and use the same tags.
 
 ## Chassis
 
