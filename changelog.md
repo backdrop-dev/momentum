@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Added
+- Customize → Theme: Global → Colors and Customize → Theme: Content → Typography, from `backdrop-dev/customize`. Both write to Chassis, so the controls start at the design's current values and a change overrides `chassis.json` without editing it; a control left alone changes nothing. Colors: text, muted text, dividers, alternate background, accent, text on accent, links, links on hover, headings, and header and footer colors. Typography: body font, heading font, base font size and line height. The fonts are Fira Sans, Lato, Open Sans, Ubuntu, Merriweather and Alegreya from `backdrop-dev/fonts`, plus "Theme default" and the system stacks; the Typography component loads a font only when it is picked, so Momentum still loads no fonts by default. Both preview live.
+
+### Changed
+- Requires `backdrop-dev/customize` `^1.0.6`, the release that loads the fonts Typography offers, and `techkodeninja/chassis` `^0.2.3`, which has the overrides the controls use.
+
 ## [0.1.2] - 11.23.2026
 
 ### Changed
