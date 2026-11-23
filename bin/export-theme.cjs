@@ -43,8 +43,7 @@ const folders = [
 	'vendor',
 ];
 
-// Removed from the copy: Composer's tools, and git checkouts of packages
-// installed from a branch (Backdrop is pinned to commits on `develop`).
+// Removed from the copy: Composer's tools. Any `.git` folders in vendor are removed too, below.
 const removeAfterCopy = [
 	'vendor/bin',
 	'vendor/composer/installers',

@@ -30,7 +30,7 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
-			<nav id="comment-nav-below" class="comments-area__navigation" role="navigation">
+			<nav id="comment-nav-below" class="comments-area__navigation" aria-label="<?php esc_attr_e( 'Comments', 'momentum' ); ?>">
 				<div class="comments-area__previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'momentum' ) ); ?></div>
 				<div class="comments-area__next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'momentum' ) ); ?></div>
 			</nav>
