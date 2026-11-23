@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [0.0.10] - 11.23.2026
+## [0.1.0] - 11.23.2026
 ### Fixed
 - The comment navigation is labelled (`aria-label="Comments"`) instead of carrying a redundant `role="navigation"`, so screen readers can tell it from the other navigation landmarks.
 - `bin/export-theme.cjs` no longer says Backdrop is pinned to `develop` commits; it requires a tagged release now.
