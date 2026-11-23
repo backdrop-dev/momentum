@@ -14,7 +14,7 @@
 namespace Momentum\Settings\Admin\Views;
 
 use Momentum\Settings\Options;
-use function Backdrop\is_classicpress;
+use function Backdrop\Theme\is_classicpress;
 
 /**
  * General settings view class.

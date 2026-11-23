@@ -13,7 +13,7 @@
 
 namespace Momentum\Settings\ThemeManager;
 
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 
 /**
  * Themes class.

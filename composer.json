@@ -22,8 +22,16 @@
     },
     "require": {
         "php": ">=7.4",
-        "backdrop-dev/framework": "^1.0.1",
+        "backdrop-dev/framework": "^2.0",
+        "backdrop-dev/attr": "^1.0",
+        "backdrop-dev/customize": "^1.0.3",
         "backdrop-dev/fonts": "^1.0.2",
+        "backdrop-dev/languages": "^1.0.2",
+        "backdrop-dev/pagination": "^1.0",
+        "backdrop-dev/template-hierarchy": "^1.0",
+        "backdrop-dev/theme": "^1.0.7",
+        "backdrop-dev/tools": "^1.0.1",
+        "backdrop-dev/view": "^1.0.3",
         "techkodeninja/chassis": "^0.2.0"
     },
     "require-dev": {

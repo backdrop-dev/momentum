@@ -15,7 +15,7 @@
 namespace Momentum\Customize;
 
 use WP_Customize_Manager;
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 
 /**
  * Customizable class.

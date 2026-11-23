@@ -17,7 +17,7 @@ use WP_Customize_Manager;
 
 use Backdrop\App;
 use Backdrop\Contracts\Bootable;
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 
 use function Momentum\Vite\asset;
 use Backdrop\Customize\Component as Customize;

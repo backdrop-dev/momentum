@@ -13,7 +13,7 @@
 
 namespace Momentum\Image\Size;
 
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 
 /**
  * Image sizes class.

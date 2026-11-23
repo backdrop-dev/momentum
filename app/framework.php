@@ -30,8 +30,16 @@ $theme = function_exists( 'Backdrop\booted' ) && Backdrop\booted() ? Backdrop\ap
 #
 # Here are the default service providers that are essential for the theme to function
 # before booting the application. These service providers form the foundation for the
-# theme.
-$theme->provider( Backdrop\Customize\Provider::class );
+# theme. Backdrop 2.0 only has the application and the container, so each feature the
+# theme uses is its own package with its own provider. The customizer's provider isn't
+# here: `Momentum\Customize\Provider` boots the customizer with the theme's components,
+# and booting the package's provider too would boot it twice.
+$theme->provider( Backdrop\Attr\Provider::class );
+$theme->provider( Backdrop\Template\Hierarchy\Provider::class );
+$theme->provider( Backdrop\View\Provider::class );
+$theme->provider( Backdrop\Pagination\Provider::class );
+$theme->provider( Backdrop\Languages\Provider::class );
+$theme->provider( Backdrop\Theme\Provider::class );
 $theme->provider( Backdrop\Fonts\Provider::class );
 // Chassis: the page skeleton (header, menu, content and sidebar, footer), components and
 // the menu script, styled by `chassis.json`. It loads before the theme's own stylesheet.

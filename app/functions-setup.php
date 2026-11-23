@@ -13,7 +13,7 @@
 
 namespace Momentum;
 
-use function Backdrop\is_classicpress;
+use function Backdrop\Theme\is_classicpress;
 
 /**
  * Set up theme support.  This is where calls to `add_theme_support()` happen.

@@ -13,7 +13,7 @@
 
 namespace Momentum\Sidebar\App;
 
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 
 /**
  * Sidebars class.

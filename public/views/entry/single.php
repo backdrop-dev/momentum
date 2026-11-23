@@ -1,10 +1,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry__header">
-		<?php Backdrop\Post\display_title( [ 'class' => 'entry__title' ] ); ?>
+		<?php Backdrop\Theme\Entry\display_title( [ 'class' => 'entry__title' ] ); ?>
 		<div class="entry__metadata">
-			<?php Backdrop\Post\display_date(); ?>
-			<?php Backdrop\Post\display_author( [ 'before' => Momentum\sep() ] ); ?>
-			<?php Backdrop\Post\display_comments_link( [ 'before' => Momentum\sep() ] ); ?>
+			<?php Backdrop\Theme\Entry\display_date(); ?>
+			<?php Backdrop\Theme\Entry\display_author( [ 'before' => Momentum\sep() ] ); ?>
+			<?php Backdrop\Theme\Entry\display_comments_link( [ 'before' => Momentum\sep() ] ); ?>
 		</div>
 	</header>
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -17,12 +17,12 @@
 		<?php Backdrop\View\display( 'nav/pagination', 'post' ); ?>
 	</div>
 	<footer class="entry__terms">
-		<?php Backdrop\Post\display_terms( [
+		<?php Backdrop\Theme\Entry\display_terms( [
 			// Translators: %s is the category list.
 			'text'     => __( 'Posted in %s', 'momentum' ),
 			'taxonomy' => 'category',
 		] ); ?>
-		<?php Backdrop\Post\display_terms( [
+		<?php Backdrop\Theme\Entry\display_terms( [
 			// Translators: %s is the tag list.
 			'text'     => __( 'Tagged %s', 'momentum' ),
 			'taxonomy' => 'post_tag',

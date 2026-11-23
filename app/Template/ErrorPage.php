@@ -15,7 +15,7 @@ namespace Momentum\Template;
 
 use Momentum\Settings\Options;
 
-use function Backdrop\Post\render_title;
+use function Backdrop\Theme\Entry\render_title;
 
 /**
  * Error page class.

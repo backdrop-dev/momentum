@@ -19,12 +19,12 @@
 		<div class="app-header__inner container">
 
 			<div class="app-header__branding">
-				<?php Backdrop\Site\display_title( [
+				<?php Backdrop\Theme\Site\display_site_title( [
 					'tag'        => is_front_page() ? 'h1' : 'p',
 					'class'      => 'app-header__title',
 					'link_class' => 'app-header__title-anchor',
 				] ); ?>
-				<?php Backdrop\Site\display_description( [
+				<?php Backdrop\Theme\Site\display_site_description( [
 					'tag'   => 'p',
 					'class' => 'app-header__tagline',
 				] ); ?>

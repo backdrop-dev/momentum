@@ -3,6 +3,12 @@
 ## [Unreleased]
 
 ### Changed
+- Requires Backdrop 2.0 (`backdrop-dev/framework` `^2.0`), which only includes the application, the container and the static proxies. The features Momentum uses are now their own packages, required in `composer.json`: `backdrop-dev/attr`, `backdrop-dev/customize` (`^1.0.3`), `backdrop-dev/languages`, `backdrop-dev/pagination`, `backdrop-dev/template-hierarchy`, `backdrop-dev/theme` (`^1.0.7`), `backdrop-dev/tools` (`^1.0.1`) and `backdrop-dev/view` (`^1.0.3`). `backdrop-dev/fonts` stays at `^1.0.2`; it resolves to 1.0.3, which requires Backdrop 2.0, so it no longer conflicts with the framework requirement.
+- `app/framework.php` registers the provider of each of those packages. It no longer registers `Backdrop\Customize\Provider`: `Momentum\Customize\Provider` boots the customizer with the theme's own components, and the package's readme says not to boot both.
+- The view engine is resolved as `Backdrop\View\Engine::class` instead of `'view/engine'`, and the template hierarchy is `Backdrop\Template\Hierarchy\hierarchy()`.
+- The templates and `config/_settings-mods.php` use the 2.0 names of the template functions: `Backdrop\Post\*` is `Backdrop\Theme\Entry\*`, `Backdrop\Comment\*` is `Backdrop\Theme\Comment\*`, `Backdrop\Site\*` is `Backdrop\Theme\Site\*` (`display_title()` and `display_description()` are `display_site_title()` and `display_site_description()`), and `Backdrop\is_classicpress()` is `Backdrop\Theme\is_classicpress()`. A child theme that overrides a template and calls the old names needs the same changes.
+- `Momentum\Tools\Collection` is removed. The collections (menus, sidebars, layouts, image sizes, custom headers, themes, plugins) and the customizer JSON use `Backdrop\Tools\Collection` from `backdrop-dev/tools` 1.0.1, which has the same `jsonSerialize()`.
+- `bin/make-pot.cjs` and `readme.txt` mention the Backdrop packages, not just the framework.
 - `.github/workflows/release.yml` no longer builds or attaches a zip: Momentum is a starter theme, installed with `composer create-project`, so publishing a release only verifies the tagged release builds (fresh translation template, Vite build, export).
 
 ## [0.1.1] - 11.23.2026

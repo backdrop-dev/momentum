@@ -7,7 +7,7 @@
  * (`public/lang/momentum.pot`), holds every string translators need: the
  * theme's own, in its text domain, and the Backdrop framework's, in the
  * `backdrop` text domain. Backdrop loads its strings from the theme's
- * translations (see `Backdrop\Lang\Language`), so one
+ * translations (see `Backdrop\Languages\Component`), so one
  * `{text-domain}-{locale}.mo` translates both.
  *
  * node-wp-i18n collects every translation call it finds, whatever the text
