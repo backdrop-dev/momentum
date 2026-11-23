@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.2] - 11.23.2026
+
 ### Changed
 - The Layout, Footer credit and Feature Image size controls in the customizer come from `backdrop-dev/customize` `^1.0.4` instead of Momentum's own `Layout\Customize`, `Footer\Customize` and `Image\Customize` classes, which are removed (along with the now empty `Footer\Provider`). `Momentum\Customize\Defaults` turns the built-in components on and gives them Momentum's choices and defaults. The setting IDs (`theme_content_layout`, `theme_content_feature_image`, `theme_footer_powered_by`, `theme_footer_custom_credit`), the panels and the stored theme mods are unchanged, so nothing saved needs migrating. The footer credit's selective-refresh partial is now `theme_footer_credit` instead of `theme_footer_powered_by`.
 - Requires Backdrop 2.0 (`backdrop-dev/framework` `^2.0`), which only includes the application, the container and the static proxies. The features Momentum uses are now their own packages, required in `composer.json`: `backdrop-dev/attr`, `backdrop-dev/customize` (`^1.0.3`), `backdrop-dev/languages`, `backdrop-dev/pagination`, `backdrop-dev/template-hierarchy`, `backdrop-dev/theme` (`^1.0.7`), `backdrop-dev/tools` (`^1.0.1`) and `backdrop-dev/view` (`^1.0.3`). `backdrop-dev/fonts` stays at `^1.0.2`; it resolves to 1.0.3, which requires Backdrop 2.0, so it no longer conflicts with the framework requirement.
