@@ -40,7 +40,7 @@ Chassis, Copyright Benjamin Lu
 License: GPL-2.0-or-later
 Source: https://github.com/techkodeninja/chassis
 
-Backdrop Framework and Backdrop Fonts, Copyright Benjamin Lu
+Backdrop Framework, the Backdrop packages and Backdrop Fonts, Copyright Benjamin Lu
 License: GPL-2.0-or-later
 Source: https://github.com/backdrop-dev
 

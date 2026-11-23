@@ -18,7 +18,7 @@ if ( ! function_exists( 'Backdrop\\View\\display' ) ) {
 }
 
 // Access the view template engine.
-$engine = Backdrop\App::resolve( 'view/engine' );
+$engine = Backdrop\App::resolve( Backdrop\View\Engine::class );
 
 // Load the index template.
 $engine->display( 'index' );

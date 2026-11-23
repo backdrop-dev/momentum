@@ -16,7 +16,7 @@ namespace Momentum\Layout;
 use WP_Customize_Manager;
 use Momentum\Customize\Customizable;
 use Momentum\Template\FeaturedImage;
-use Momentum\Tools\Collection;
+use Backdrop\Tools\Collection;
 use Momentum\Tools\Mod;
 use Backdrop\App;
 use Backdrop\Customize\Controls\RadioImage;
